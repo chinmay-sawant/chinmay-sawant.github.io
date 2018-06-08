@@ -11,7 +11,7 @@
   right: -5px;
   width: 2px;
   /* Change colour of Cursor Here */
-  background-color: white;
+  background-color: black;
   z-index: 1;
   -webkit-animation: flash 0.5s none infinite alternate;
           animation: flash 0.5s none infinite alternate;
@@ -41,10 +41,19 @@
   font-family: "Open Sans", sans-serif;
 }
 
-body {
+/*#div1
+{
   background: -webkit-linear-gradient(315deg, #00C4FF, #9D1BB2);
   background: linear-gradient(135deg, #00C4FF, #9D1BB2);
-  height: 100vh;
+height:100vh;
+widht:100vh;
+
+}
+--------------------------Gradiant for background xD------------------------------------------
+*/
+body {
+
+  height: 200vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -58,9 +67,11 @@ body {
 
 .headline {
   margin: 20px;
-  color: white;
+  color: black;
   font-size: 32px;
   text-align: center;
+  top:-25%;
+ 
 }
 .headline h1 {
   letter-spacing: 1.6px;
@@ -105,3 +116,90 @@ body {
 .twitterLink svg {
   width: 25px;
 }
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:600);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.text {
+  position: absolute;
+  width: 450px;
+  left: 50%;
+  margin-left: -225px;
+  height: 40px;
+  top: 150%;
+  margin-top: -20px;
+}
+
+p {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+
+}
+
+.word {
+  position: absolute;
+  width: 220px;
+  opacity: 0;
+}
+
+.letter {
+  display: inline-block;
+  position: relative;
+  float: left;
+  -webkit-transform: translateZ(25px);
+          transform: translateZ(25px);
+  -webkit-transform-origin: 50% 50% 25px;
+          transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+  -webkit-transform: rotateX(90deg);
+          transform: rotateX(90deg);
+  -webkit-transition: -webkit-transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: -webkit-transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+  -webkit-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+}
+
+.letter.in {
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+  -webkit-transition: -webkit-transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: -webkit-transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.col1 {
+  color: #041cef;
+}
+
+.col2 {
+  color: #7504ef;
+}
+
+.col3 {
+  color: #ed0404;
+}
+.col4{
+  color: #01b23c;
+}
+
+.col5{
+  color: #049b8c;
+}
+.col6{
+color: #e85c00;	
+}
+
+
