@@ -3,371 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chinmay Sawant - Backend Developer</title>
+    <title>chinmay sawant - backend developer</title>
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        --bg-light: #ffffff;
-        --bg-dark: #0a0a0a;
-        --text-light: #2c2c2c;
-        --text-dark: #e5e5e5;
-        --text-muted-light: #666666;
-        --text-muted-dark: #a0a0a0;
-        --border-light: #e0e0e0;
-        --border-dark: #2a2a2a;
-        --accent: #007acc;
-        --accent-hover: #005a9e;
-        --card-bg-light: #fafafa;
-        --card-bg-dark: #1a1a1a;
-        --code-bg-light: #f5f5f5;
-        --code-bg-dark: #151515;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "JetBrains Mono", monospace;
-        line-height: 1.6;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        background: var(--bg-dark);
-        color: var(--text-dark);
-      }
-
-      body.light {
-        background: var(--bg-light);
-        color: var(--text-light);
-      }
-
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 40px 20px;
-      }
-      .theme-toggle {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: none;
-        border: 1px solid var(--border-dark);
-        padding: 10px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-family: inherit;
-        font-size: 16px;
-        transition: all 0.3s ease;
-        background: var(--bg-dark);
-        color: var(--text-dark);
-        z-index: 1000;
-      }
-
-      .light .theme-toggle {
-        border-color: var(--border-light);
-        background: var(--bg-light);
-        color: var(--text-light);
-      }
-
-      .theme-toggle:hover {
-        border-color: var(--accent);
-      }
-      .header {
-        margin-bottom: 60px;
-        padding-bottom: 30px;
-        border-bottom: 1px solid var(--border-dark);
-      }
-
-      .light .header {
-        border-bottom-color: var(--border-light);
-      }
-      .header h1 {
-        font-size: 32px;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: var(--text-dark);
-      }
-
-      .light .header h1 {
-        color: var(--text-light);
-      }
-      .header .subtitle {
-        font-size: 16px;
-        color: var(--text-muted-dark);
-        margin-bottom: 20px;
-      }
-
-      .light .header .subtitle {
-        color: var(--text-muted-light);
-      }
-
-      .header .links {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-
-      .header .links a {
-        color: var(--accent);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.2s ease;
-      }
-
-      .header .links a:hover {
-        border-bottom-color: var(--accent);
-      }
-
-      .section {
-        margin-bottom: 50px;
-      }
-      .section h2 {
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        color: var(--text-dark);
-      }
-
-      .light .section h2 {
-        color: var(--text-light);
-      }
-
-      .section p {
-        margin-bottom: 16px;
-        color: var(--text-dark);
-      }
-
-      .light .section p {
-        color: var(--text-light);
-      }
-      .experience-item {
-        margin-bottom: 30px;
-        padding: 20px;
-        background: var(--card-bg-dark);
-        border: 1px solid var(--border-dark);
-        border-radius: 6px;
-        border-left: 3px solid var(--accent);
-        transition: all 0.2s ease;
-      }
-
-      .experience-item:hover {
-        border-color: var(--accent);
-        border-left-color: var(--accent);
-      }
-
-      .light .experience-item {
-        background: var(--card-bg-light);
-        border-color: var(--border-light);
-        border-left-color: var(--accent);
-      }
-      .experience-item h3 {
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 4px;
-        color: var(--text-dark);
-      }
-
-      .light .experience-item h3 {
-        color: var(--text-light);
-      }
-
-      .experience-item .role {
-        font-size: 14px;
-        color: var(--accent);
-        margin-bottom: 4px;
-      }
-      .experience-item .duration {
-        font-size: 12px;
-        color: var(--text-muted-dark);
-        margin-bottom: 12px;
-      }
-
-      .light .experience-item .duration {
-        color: var(--text-muted-light);
-      }
-
-      .experience-item p {
-        font-size: 13px;
-        color: var(--text-muted-dark);
-      }
-
-      .light .experience-item p {
-        color: var(--text-muted-light);
-      }
-
-      .skills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 16px;
-      }
-      .skill-tag {
-        background: var(--code-bg-dark);
-        color: var(--text-dark);
-        padding: 6px 10px;
-        border: 1px solid var(--border-dark);
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: 400;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        transition: all 0.2s ease;
-      }
-
-      .skill-tag:hover {
-        border-color: var(--accent);
-        background: var(--bg-dark);
-      }
-
-      .light .skill-tag {
-        background: var(--code-bg-light);
-        color: var(--text-light);
-        border-color: var(--border-light);
-      }
-
-      .light .skill-tag:hover {
-        border-color: var(--accent);
-        background: var(--bg-light);
-      }
-
-      .skill-icon {
-        width: 14px;
-        height: 14px;
-        opacity: 0.8;
-      }
-
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-      }
-      .project-card {
-        background: var(--card-bg-dark);
-        border: 1px solid var(--border-dark);
-        border-radius: 6px;
-        padding: 20px;
-        transition: all 0.2s ease;
-      }
-
-      .light .project-card {
-        background: var(--card-bg-light);
-        border-color: var(--border-light);
-      }
-
-      .project-card:hover {
-        border-color: var(--accent);
-      }
-      .project-card h3 {
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 12px;
-        color: var(--text-dark);
-      }
-
-      .light .project-card h3 {
-        color: var(--text-light);
-      }
-
-      .project-card p {
-        font-size: 13px;
-        color: var(--text-muted-dark);
-        margin-bottom: 16px;
-      }
-
-      .light .project-card p {
-        color: var(--text-muted-light);
-      }
-
-      .project-card a {
-        color: var(--accent);
-        text-decoration: none;
-        font-size: 13px;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.2s ease;
-      }
-
-      .project-card a:hover {
-        border-bottom-color: var(--accent);
-      }
-
-      .interests-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 16px;
-      }
-      .interest-item {
-        background: var(--code-bg-dark);
-        color: var(--text-muted-dark);
-        padding: 8px 14px;
-        border: 1px solid var(--border-dark);
-        border-radius: 4px;
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        transition: all 0.2s ease;
-      }
-
-      .interest-item:hover {
-        border-color: var(--accent);
-        background: var(--bg-dark);
-      }
-
-      .light .interest-item {
-        background: var(--code-bg-light);
-        color: var(--text-muted-light);
-        border-color: var(--border-light);
-      }
-
-      .light .interest-item:hover {
-        border-color: var(--accent);
-        background: var(--bg-light);
-      }
-
-      .interest-icon {
-        font-size: 12px;
-        opacity: 0.8;
-      }
-      .footer {
-        margin-top: 80px;
-        padding-top: 30px;
-        border-top: 1px solid var(--border-dark);
-        text-align: center;
-        color: var(--text-muted-dark);
-        font-size: 12px;
-      }
-
-      .light .footer {
-        border-top-color: var(--border-light);
-        color: var(--text-muted-light);
-      }
-
-      @media (max-width: 768px) {
-        .container {
-          padding: 20px 16px;
-        }
-
-        .header h1 {
-          font-size: 24px;
-        }
-
-        .projects-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .header .links {
-          flex-direction: column;
-          gap: 10px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <button class="theme-toggle" onclick="toggleTheme()">☀️</button>
@@ -437,7 +78,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
               class="skill-icon"
-              alt="Java"
+              alt="java"
             />
             java_17
           </div>
@@ -445,7 +86,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
               class="skill-icon"
-              alt="Go"
+              alt="go"
             />
             golang
           </div>
@@ -453,7 +94,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
               class="skill-icon"
-              alt="Spring"
+              alt="spring"
             />
             spring_boot
           </div>
@@ -461,7 +102,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
               class="skill-icon"
-              alt="Gin"
+              alt="gin"
             />
             gin_framework
           </div>
@@ -469,7 +110,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg"
               class="skill-icon"
-              alt="GraphQL"
+              alt="graphql"
             />
             graphql
           </div>
@@ -477,7 +118,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg"
               class="skill-icon"
-              alt="Gqlgen"
+              alt="gqlgen"
             />
             gqlgen
           </div>
@@ -485,7 +126,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
               class="skill-icon"
-              alt="GORM"
+              alt="gorm"
             />
             gorm
           </div>
@@ -493,7 +134,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
               class="skill-icon"
-              alt="Python"
+              alt="python"
             />
             python
           </div>
@@ -501,7 +142,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
               class="skill-icon"
-              alt="PostgreSQL"
+              alt="postgresql"
             />
             postgresql
           </div>
@@ -509,7 +150,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
               class="skill-icon"
-              alt="Redis"
+              alt="redis"
             />
             redis
           </div>
@@ -517,7 +158,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
               class="skill-icon"
-              alt="MongoDB"
+              alt="mongodb"
             />
             mongodb
           </div>
@@ -541,7 +182,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
               class="skill-icon"
-              alt="Docker"
+              alt="docker"
             />
             docker
           </div>
@@ -565,7 +206,7 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
               class="skill-icon"
-              alt="React"
+              alt="react"
             />
             react
           </div>
@@ -573,17 +214,33 @@
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
               class="skill-icon"
-              alt="JavaScript"
+              alt="javascript"
             />
             javascript
           </div>
           <div class="skill-tag">
             <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+              src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
               class="skill-icon"
-              alt="GitHub Copilot"
+              alt="github copilot"
             />
             github_copilot
+          </div>
+          <div class="skill-tag">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              class="skill-icon"
+              alt="git"
+            />
+            git
+          </div>
+          <div class="skill-tag">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+              class="skill-icon"
+              alt="vscode plugins"
+            />
+            vscode_plugins
           </div>
           <div class="skill-tag">
             <img
@@ -614,174 +271,352 @@
 
       <section class="section">
         <h2>featured_projects</h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <h3>MotionSaver</h3>
-            <p>
-              a screensaver application inspired by wallpaper engine. features
-              dynamic video backgrounds, real-time widgets (weather, stocks,
-              media player), multi-monitor support, advanced security with
-              windows api integration. built with python, opencv.
-            </p>
-            <!-- Badges: views and total downloads -->
-            <div style="margin-bottom: 8px">
-              <a
-                href="https://github.com/chinmay-sawant/MotionSaver"
-                target="_blank"
-                aria-label="views badge"
-              >
-                <img
-                  src="https://raw.githubusercontent.com/chinmay-sawant/MotionSaver/master/.github/badges/views_badge.svg"
-                  alt="views"
-                  style="
-                    height: 20px;
-                    margin-right: 8px;
-                    vertical-align: middle;
-                  "
-                />
-              </a>
-              <a
-                href="https://github.com/chinmay-sawant/MotionSaver"
-                target="_blank"
-                aria-label="downloads badge"
-              >
-                <img
-                  src="https://raw.githubusercontent.com/chinmay-sawant/MotionSaver/master/.github/badges/total_downloads_badge.svg"
-                  alt="downloads"
-                  style="height: 20px; vertical-align: middle"
-                />
-              </a>
+
+        <!-- python projects -->
+        <div class="projects-category">
+          <h3>
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+              class="skill-icon"
+              alt="python"
+              style="width: 18px; height: 18px; margin-right: 8px"
+            />
+            python_projects
+          </h3>
+          <div class="projects-grid">
+            <div class="project-card">
+              <h3>motionsaver</h3>
+              <p>
+                a screensaver application inspired by wallpaper engine. features
+                dynamic video backgrounds, real-time widgets (weather, stocks,
+                media player), multi-monitor support, advanced security with
+                windows api integration. built with python, opencv.
+              </p>
+              <div class="project-badges">
+                <a
+                  href="https://github.com/chinmay-sawant/MotionSaver"
+                  target="_blank"
+                  aria-label="views badge"
+                >
+                  <img
+                    src="https://raw.githubusercontent.com/chinmay-sawant/MotionSaver/master/.github/badges/views_badge.svg"
+                    alt="views"
+                  />
+                </a>
+                <a
+                  href="https://github.com/chinmay-sawant/MotionSaver"
+                  target="_blank"
+                  aria-label="downloads badge"
+                >
+                  <img
+                    src="https://raw.githubusercontent.com/chinmay-sawant/MotionSaver/master/.github/badges/total_downloads_badge.svg"
+                    alt="downloads"
+                  />
+                </a>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/MotionSaver"
+                  target="_blank"
+                  >view_source →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- go projects -->
+        <div class="projects-category">
+          <h3>
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
+              class="skill-icon"
+              alt="go"
+              style="width: 18px; height: 18px; margin-right: 8px"
+            />
+            go_projects
+          </h3>
+          <div class="projects-grid">
+            <div class="project-card">
+              <h3>codemapper</h3>
+              <p>
+                tool to analyze large go codebases: automatically parse
+                functions and call sites, generate a dependency map
+                (codemap.json), and visualize relationships in an interactive
+                react graph ui. backend is written in go; frontend is a browser
+                visualizer. mit licensed.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/CodeMapper"
+                  target="_blank"
+                  >view_source →</a
+                >
+              </div>
             </div>
 
-            <a
-              href="https://github.com/chinmay-sawant/MotionSaver"
-              target="_blank"
-              >view_source →</a
-            >
-          </div>
+            <div class="project-card">
+              <h3>go_fhir_demo</h3>
+              <p>
+                comprehensive go gin framework application with fhir r4 support.
+                features postgresql database, swagger documentation, external
+                fhir server integration, database migrations, structured
+                logging, and clean architecture patterns.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/GO_FHIR_DEMO"
+                  target="_blank"
+                  >view_source →</a
+                >
+              </div>
+            </div>
 
-          <div class="project-card">
-            <h3>CodeMapper</h3>
-            <p>
-              Tool to analyze large Go codebases: automatically parse functions
-              and call sites, generate a dependency map (codemap.json), and
-              visualize relationships in an interactive React graph UI. Backend
-              is written in Go; frontend is a browser visualizer. MIT licensed.
-            </p>
-            <a
-              href="https://github.com/chinmay-sawant/CodeMapper"
-              target="_blank"
-              >view_source →</a
-            >
-          </div>
+            <div class="project-card">
+              <h3>employee_management_system</h3>
+              <p>
+                clean architecture employee management system with go and gin
+                framework. interface-based service and controller layers,
+                repository pattern, comprehensive testing with testify suites
+                and gomock, swagger/openapi documentation for restful crud
+                operations.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/gin-example"
+                  target="_blank"
+                  >view_source →</a
+                >
+              </div>
+            </div>
 
-          <div class="project-card">
-            <h3>CodeMemos (Dokumenter)</h3>
-            <p>
-              VS Code extension to collect and save code snippets with
-              descriptions and explanations, highlight snippets in-editor, and
-              export collected snippets to markdown files. Install via VSIX or
-              build from source. MIT licensed.
-            </p>
-            <a
-              href="https://github.com/chinmay-sawant/Dokumenter"
-              target="_blank"
-              >view_source →</a
-            >
-            <a
-              href="https://marketplace.visualstudio.com/items?itemName=chinmay-sawant.code-snippet-collector"
-              target="_blank"
-              style="margin-left: 12px"
-              >vscode marketplace →</a
-            >
+            <div class="project-card">
+              <h3>go_apollo_graphql</h3>
+              <p>
+                graphql server demonstration using go and gqlgen library with
+                apollo gateway integration. showcases graphql federation
+                capabilities, apollo router setup, and modern graphql best
+                practices for scalable api architectures.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/Go-Apollo-Graphql-Example"
+                  target="_blank"
+                  >view_source →</a
+                >
+              </div>
+            </div>
           </div>
-          <div class="project-card">
-            <h3>go_fhir_demo</h3>
-            <p>
-              comprehensive go gin framework application with fhir r4 support.
-              features postgresql database, swagger documentation, external fhir
-              server integration, database migrations, structured logging, and
-              clean architecture patterns.
-            </p>
-            <a
-              href="https://github.com/chinmay-sawant/GO_FHIR_DEMO"
-              target="_blank"
-              >view_source →</a
-            >
-          </div>
-          <div class="project-card">
-            <h3>employee_management_system</h3>
-            <p>
-              clean architecture employee management system with go and gin
-              framework. interface-based service and controller layers,
-              repository pattern, comprehensive testing with testify suites and
-              gomock, swagger/openapi documentation for restful crud operations.
-            </p>
-            <a
-              href="https://github.com/chinmay-sawant/gin-example"
-              target="_blank"
-              >view_source →</a
-            >
-          </div>
+        </div>
 
-          <div class="project-card">
-            <h3>ecommerce_learning_project</h3>
-            <p>
-              spring boot learning initiative exploring modern web development.
-              robust security with spring security and auth0 jwt authentication,
-              spring data jpa with postgresql, comprehensive testing with junit5
-              and mockito, ci/cd pipelines using github actions.
-            </p>
-            <a
-              href="https://github.com/chinmay-sawant/e-Commerce"
-              target="_blank"
-              >view_source →</a
-            >
-          </div>
+        <!-- java projects -->
+        <div class="projects-category">
+          <h3>
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+              class="skill-icon"
+              alt="java"
+              style="width: 18px; height: 18px; margin-right: 8px"
+            />
+            java_projects
+          </h3>
+          <div class="projects-grid">
+            <div class="project-card">
+              <h3>netflix_springboot_graphql</h3>
+              <p>
+                spring boot application with graphql implementation showcasing
+                netflix dataset integration. demonstrates modern graphql api
+                development with spring boot, utilizing kaggle netflix movies
+                and tv shows dataset for real-world data processing.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/Netflix-SpringBoot-Graphql"
+                  target="_blank"
+                  >view_source →</a
+                >
+              </div>
+            </div>
 
-          <div class="project-card">
-            <h3>go_apollo_graphql</h3>
-            <p>
-              graphql server demonstration using go and gqlgen library with
-              apollo gateway integration. showcases graphql federation
-              capabilities, apollo router setup, and modern graphql best
-              practices for scalable api architectures.
-            </p>
-            <a
-              href="https://github.com/chinmay-sawant/Go-Apollo-Graphql-Example"
-              target="_blank"
-              >view_source →</a
-            >
-          </div>
+            <div class="project-card">
+              <h3>url_shortener</h3>
+              <p>
+                full-stack url shortening service with react frontend and java
+                spring boot backend. redis integration for fast storage and
+                retrieval, configurable url expiry, authentication system,
+                seamless redirect functionality with intuitive ui.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/URLShortener"
+                  target="_blank"
+                  >view_source →</a
+                >
+              </div>
+            </div>
 
-          <div class="project-card">
-            <h3>netflix_springboot_graphql</h3>
-            <p>
-              spring boot application with graphql implementation showcasing
-              netflix dataset integration. demonstrates modern graphql api
-              development with spring boot, utilizing kaggle netflix movies and
-              tv shows dataset for real-world data processing.
-            </p>
-            <a
-              href="https://github.com/chinmay-sawant/Netflix-SpringBoot-Graphql"
-              target="_blank"
-              >view_source →</a
-            >
+            <div class="project-card">
+              <h3>ecommerce_learning_project</h3>
+              <p>
+                spring boot learning initiative exploring modern web
+                development. robust security with spring security and auth0 jwt
+                authentication, spring data jpa with postgresql, comprehensive
+                testing with junit5 and mockito, ci/cd pipelines using github
+                actions.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/e-Commerce"
+                  target="_blank"
+                  >view_source →</a
+                >
+              </div>
+            </div>
           </div>
+        </div>
 
-          <div class="project-card">
-            <h3>url_shortener</h3>
-            <p>
-              full-stack url shortening service with react frontend and java
-              spring boot backend. redis integration for fast storage and
-              retrieval, configurable url expiry, authentication system,
-              seamless redirect functionality with intuitive ui.
-            </p>
-            <a
-              href="https://github.com/chinmay-sawant/URLShortener"
-              target="_blank"
-              >view_source →</a
-            >
+        <!-- vscode extensions -->
+        <div class="projects-category">
+          <h3>
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+              class="skill-icon"
+              alt="vscode"
+              style="width: 18px; height: 18px; margin-right: 8px"
+            />
+            vscode_extensions
+          </h3>
+          <div class="projects-grid">
+            <div class="project-card">
+              <h3>codememos (dokumenter)</h3>
+              <p>
+                vs code extension to collect and save code snippets with
+                descriptions and explanations, highlight snippets in-editor, and
+                export collected snippets to markdown files. features codelens
+                ui, smart filename generation, and works with any language.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/Dokumenter"
+                  target="_blank"
+                  >view_source →</a
+                >
+                <a
+                  href="https://marketplace.visualstudio.com/items?itemName=chinmay-sawant.code-snippet-collector"
+                  target="_blank"
+                  >vscode marketplace →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- chrome extensions -->
+        <div class="projects-category">
+          <h3>
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg"
+              class="skill-icon"
+              alt="chrome"
+              style="width: 18px; height: 18px; margin-right: 8px"
+            />
+            chrome_extensions
+          </h3>
+          <div class="projects-grid">
+            <div class="project-card">
+              <h3>gemini to markdown (gemininotetaker)</h3>
+              <p>
+                chrome extension that enhances your gemini experience by
+                converting conversations to markdown format. features direct
+                html-to-markdown conversion, integrated utilities menu, smart
+                filename generation, and clipboard integration for seamless
+                workflow.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/gemini-to-markdown"
+                  target="_blank"
+                  >view_source →</a
+                >
+              </div>
+            </div>
+
+            <div class="project-card">
+              <h3>youtube comments tracker</h3>
+              <p>
+                chrome extension that displays live-updating comments from
+                specific users and/or comments containing timestamps on youtube
+                video pages in a transparent, draggable overlay. features
+                real-time comment monitoring, user-specific filtering, automatic
+                timestamp detection, and dual mode operation for enhanced
+                youtube viewing experience.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/YoutubeCommentsTracker"
+                  target="_blank"
+                  >view_source →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- vibe coded projects -->
+        <div class="projects-category">
+          <h3>
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              class="skill-icon"
+              alt="vibe coding"
+              style="width: 18px; height: 18px; margin-right: 8px"
+            />
+            vibe_coded_projects
+          </h3>
+          <div class="projects-grid">
+            <div class="project-card">
+              <h3>blackhole simulation</h3>
+              <p>
+                interactive blackhole simulation created using gemini ai.
+                features realistic gravitational effects and particle physics
+                visualization. built with html5 canvas and javascript for an
+                immersive space experience. best viewed in 1024x768 resolution.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/Blackhole_Simulation"
+                  target="_blank"
+                  >view_source →</a
+                >
+                <a
+                  href="https://chinmay-sawant.github.io/Blackhole_Simulation/"
+                  target="_blank"
+                  >live_demo →</a
+                >
+              </div>
+            </div>
+
+            <div class="project-card">
+              <h3>dyson swarms</h3>
+              <p>
+                futuristic dyson swarm visualization created with gemini ai.
+                demonstrates the concept of solar energy collection
+                megastructures around stars. interactive simulation with
+                realistic orbital mechanics and energy collection visualization.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/chinmay-sawant/Dyson_Swarms"
+                  target="_blank"
+                  >view_source →</a
+                >
+                <a
+                  href="https://chinmay-sawant.github.io/Dyson_Swarms/"
+                  target="_blank"
+                  >live_demo →</a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -820,31 +655,6 @@
     <footer class="footer">
       <p>© 2025 chinmay_sawant. built with ❤️</p>
     </footer>
-    <script>
-      function toggleTheme() {
-        const body = document.body;
-        const button = document.querySelector(".theme-toggle");
-
-        body.classList.toggle("light");
-        button.textContent = body.classList.contains("light") ? "🌙" : "☀️";
-
-        // Save theme preference
-        localStorage.setItem(
-          "theme",
-          body.classList.contains("light") ? "light" : "dark"
-        );
-      }
-
-      // Load saved theme
-      document.addEventListener("DOMContentLoaded", function () {
-        const savedTheme = localStorage.getItem("theme");
-        const button = document.querySelector(".theme-toggle");
-
-        if (savedTheme === "light") {
-          document.body.classList.add("light");
-          button.textContent = "🌙";
-        }
-      });
-    </script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
