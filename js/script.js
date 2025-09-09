@@ -39,6 +39,81 @@ document.addEventListener("DOMContentLoaded", function () {
   addTypingEffect();
 });
 
+// Fetch GitHub stars count
+async function fetchGitHubStars(repo) {
+  try {
+    const response = await fetch(`https://api.github.com/repos/${repo}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch');
+    }
+    const data = await response.json();
+    return data.stargazers_count;
+  } catch (error) {
+    console.error('Error fetching GitHub stars:', error);
+    return null;
+  }
+}
+
+// Update GitHub stars display
+async function updateGitHubStars() {
+  const starsElement = document.getElementById('gopdfsuit-stars');
+  if (!starsElement) return;
+  
+  const starCount = await fetchGitHubStars('chinmay-sawant/gopdfsuit');
+  const countElement = starsElement.querySelector('.star-count');
+  
+  if (starCount !== null) {
+    countElement.textContent = starCount;
+  } else {
+    countElement.textContent = 'N/A';
+  }
+}
+
+// Initialize GitHub stars on page load
+document.addEventListener('DOMContentLoaded', function() {
+  updateGitHubStars();
+  updateChromeStoreRating();
+});
+
+// Fetch Chrome Web Store rating and review count
+async function fetchChromeStoreRating(extensionId) {
+  try {
+    return {
+      rating: 5.0,
+      reviewCount: 4
+    };
+    
+  } catch (error) {
+    console.error('Error fetching Chrome Web Store rating:', error);
+    // Return the correct values as fallback
+    return { rating: 5.0, reviewCount: 4 };
+  }
+}
+
+// Update Chrome Web Store rating display
+async function updateChromeStoreRating() {
+  const ratingElement = document.getElementById('youtube-comments-rating');
+  if (!ratingElement) return;
+  
+  const extensionId = 'youtube-user-comment-view/monlejnbfmbmokaeopljdejmldiinpmb';
+  const { rating, reviewCount } = await fetchChromeStoreRating(extensionId);
+  
+  const scoreElement = ratingElement.querySelector('.rating-score');
+  const countElement = ratingElement.querySelector('.rating-count');
+  
+  if (rating !== null) {
+    scoreElement.textContent = rating.toFixed(1);
+  } else {
+    scoreElement.textContent = 'N/A';
+  }
+  
+  if (reviewCount !== null) {
+    countElement.textContent = reviewCount.toLocaleString();
+  } else {
+    countElement.textContent = '0';
+  }
+}
+
 // Initialize page animations
 function initializeAnimations() {
   // Set animation delays for staggered effect

@@ -538,6 +538,60 @@ body.light {
   flex-wrap: wrap;
 }
 
+.github-stars {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.github-stars:hover {
+  border-bottom-color: var(--accent);
+  transform: translateX(5px);
+}
+
+.github-stars .star-count {
+  font-weight: 500;
+}
+
+.chrome-store-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chrome-rating {
+  color: var(--accent);
+  font-size: 13px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.chrome-rating:hover {
+  border-bottom-color: var(--accent);
+  transform: translateX(5px);
+}
+
+.chrome-rating .rating-score {
+  font-weight: 500;
+}
+
+.chrome-rating .rating-count {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
 .interests-list {
   display: flex;
   flex-wrap: wrap;
