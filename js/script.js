@@ -56,16 +56,19 @@ async function fetchGitHubStars(repo) {
 
 // Update GitHub stars display
 async function updateGitHubStars() {
-  const starsElement = document.getElementById('gopdfsuit-stars');
-  if (!starsElement) return;
-  
-  const starCount = await fetchGitHubStars('chinmay-sawant/gopdfsuit');
-  const countElement = starsElement.querySelector('.star-count');
-  
-  if (starCount !== null) {
-    countElement.textContent = starCount;
-  } else {
-    countElement.textContent = 'N/A';
+  // Find all star anchors that declare the repo via data-repo and update them
+  const starAnchors = document.querySelectorAll('.github-stars[data-repo]');
+  for (const anchor of starAnchors) {
+    const repo = anchor.getAttribute('data-repo');
+    const countElement = anchor.querySelector('.star-count');
+    if (!repo || !countElement) continue;
+
+    const starCount = await fetchGitHubStars(repo);
+    if (starCount !== null) {
+      countElement.textContent = starCount;
+    } else {
+      countElement.textContent = 'N/A';
+    }
   }
 }
 
