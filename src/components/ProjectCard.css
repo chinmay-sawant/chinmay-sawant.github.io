@@ -110,10 +110,16 @@ body.light .project-card p {
   font-size: 13px;
   border-bottom: 1px solid transparent;
   transition: all 0.3s ease;
-  cursor: default;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  text-decoration: none;
+}
+
+.github-stars:hover {
+  border-bottom-color: var(--accent);
+  transform: translateX(5px);
 }
 
 .github-stars .star-count {

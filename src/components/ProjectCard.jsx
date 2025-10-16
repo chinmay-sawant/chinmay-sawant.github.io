@@ -29,9 +29,14 @@ const ProjectCard = ({ project }) => {
         ))}
         
         {project.stars && (
-          <span className="github-stars">
+          <a 
+            href={project.links[0]?.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="github-stars"
+          >
             ⭐ <span className="star-count">{stars}</span>
-          </span>
+          </a>
         )}
         
         {project.chromeRating && (
