@@ -1,0 +1,14 @@
+.footer {
+  margin-top: 80px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-dark);
+  text-align: center;
+  color: var(--text-muted-dark);
+  font-size: 12px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+body.light .footer {
+  border-top-color: var(--border-light);
+  color: var(--text-muted-light);
+}
