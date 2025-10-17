@@ -1,0 +1,44 @@
+.projects-section {
+  margin-bottom: 50px;
+}
+
+.projects-category {
+  margin-bottom: 40px;
+}
+
+.projects-category h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--accent);
+  position: relative;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.projects-category h3::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.projects-category:hover h3::before {
+  transform: rotate(90deg);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

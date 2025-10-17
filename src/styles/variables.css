@@ -1,0 +1,22 @@
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #0a0a0a;
+  --text-light: #2c2c2c;
+  --text-dark: #e5e5e5;
+  --text-muted-light: #666666;
+  --text-muted-dark: #a0a0a0;
+  --border-light: #e0e0e0;
+  --border-dark: #2a2a2a;
+  --accent: #007acc;
+  --accent-hover: #005a9e;
+  --card-bg-light: #fafafa;
+  --card-bg-dark: #1a1a1a;
+  --code-bg-light: #f5f5f5;
+  --code-bg-dark: #151515;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

@@ -1,0 +1,62 @@
+.skills-section {
+  margin-bottom: 50px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.skill-tag {
+  background: var(--code-bg-dark);
+  color: var(--text-dark);
+  padding: 6px 10px;
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.skill-tag:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.skill-tag:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+.skill-tag:hover {
+  border-color: var(--accent);
+  background: var(--bg-dark);
+  transform: scale(1.1) rotate(5deg);
+  animation: pulse 0.5s ease-in-out;
+}
+
+body.light .skill-tag {
+  background: var(--code-bg-light);
+  color: var(--text-light);
+  border-color: var(--border-light);
+}
+
+body.light .skill-tag:hover {
+  border-color: var(--accent);
+  background: var(--bg-light);
+}
+
+.skill-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover .skill-icon {
+  transform: rotate(360deg);
+}
