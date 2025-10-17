@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp dist/index-vite.html index.html && cp -r dist/assets . && rm -rf dist",
+    "build": "vite build && cp dist/index-vite.html ../index.html && cp -r dist/assets ../ && rm -rf dist",
     "preview": "vite preview",
     "deploy": "npm run build && node deploy.js"
   },
