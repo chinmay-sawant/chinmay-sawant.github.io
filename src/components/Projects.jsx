@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
-import { projectsData } from '../utils/projectsData';
+import { projectsdata } from '../utils/projectsData';
 import './Projects.css';
 
 const Projects = () => {
@@ -19,6 +19,11 @@ const Projects = () => {
       key: 'java', 
       title: 'java_projects',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
+    },
+    { 
+      key: 'react', 
+      title: 'react_projects',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
     },
     { 
       key: 'vscode', 
@@ -53,7 +58,7 @@ const Projects = () => {
             {category.title}
           </h3>
           <div className="projects-grid">
-            {projectsData[category.key]?.map((project, index) => (
+            {projectsdata[category.key]?.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
           </div>
