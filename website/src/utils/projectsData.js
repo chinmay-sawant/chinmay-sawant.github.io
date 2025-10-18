@@ -36,7 +36,8 @@ export const projectsdata = {
       description: 'tool to analyze large go codebases: automatically parse functions and call sites, generate a dependency map (codemap.json), and visualize relationships in an interactive react graph ui. backend is written in go; frontend is a browser visualizer. mit licensed.',
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/codemapper' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/codemapper/' }
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/CodeMapper/' }
+
       ]
     },
     {
@@ -90,7 +91,7 @@ export const projectsdata = {
       description: "a beautiful, modern spotify music dashboard built with react, typescript, and vite. discover your recently played tracks with stunning animations and a sleek theme system. features advanced theme system with light/dark mode, enhanced authentication, music dashboard with recently played tracks, stunning animations, and responsive design.",
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/rotify' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/rotify/' }
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/Rotify/' }
       ]
     },
     {
@@ -98,7 +99,7 @@ export const projectsdata = {
       description: "a small personal text-to-speech web app built with vite and react that uses the browser's native web speech api - no third-party tts services or signup required. features text input and speak functionality, voice selection, light/dark theme toggle, and responsive ui.",
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/texttospeech' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/texttospeech/' }
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/TextToSpeech/' }
       ]
     }
   ],
@@ -125,7 +126,7 @@ export const projectsdata = {
       description: 'chrome extension that displays live-updating comments from specific users and/or comments containing timestamps on youtube video pages in a transparent, draggable overlay. features real-time comment monitoring, user-specific filtering, automatic timestamp detection, and dual mode operation for enhanced youtube viewing experience.',
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/youtubecommentstracker' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/youtubecommentsviewer/' },
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/YoutubeCommentsViewer/' },
         { text: 'chrome_store →', url: 'https://chromewebstore.google.com/detail/youtube-user-comment-view/monlejnbfmbmokaeopljdejmldiinpmb?authuser=0&hl=en', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg' }
       ],
       chromerating: { rating: 5.0, reviewcount: 4 }
@@ -135,7 +136,7 @@ export const projectsdata = {
       description: 'chrome extension to customize youtube\'s grid layout - change the number of columns (1–20), adjust spacing (compact/normal/comfortable), and apply changes in real-time with persistent settings saved to the browser.',
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/auratubeextension' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/auratubeextension/' },
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/AuraTubeExtension/' },
         { text: 'chrome_store →', url: 'https://chromewebstore.google.com/detail/anokmndlhnkfbjbjolamicemoijgoeea?utm_source=item-share-cb', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg' }
       ]
     }
@@ -146,7 +147,7 @@ export const projectsdata = {
       description: 'interactive blackhole simulation created using gemini ai. features realistic gravitational effects and particle physics visualization. built with html5 canvas and javascript for an immersive space experience. best viewed in 1024x768 resolution.',
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/blackhole_simulation' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/blackhole_simulation/' }
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/Blackhole_Simulation/' }
       ]
     },
     {
@@ -154,7 +155,7 @@ export const projectsdata = {
       description: 'futuristic dyson swarm visualization created with gemini ai. demonstrates the concept of solar energy collection megastructures around stars. interactive simulation with realistic orbital mechanics and energy collection visualization.',
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/dyson_swarms' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/dyson_swarms/' }
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/Dyson_Swarms/' }
       ]
     }
   ]
