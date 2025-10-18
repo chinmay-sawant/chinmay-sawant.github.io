@@ -101,6 +101,14 @@ export const projectsdata = {
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/texttospeech' },
         { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/TextToSpeech/' }
       ]
+    },
+    {
+      title: 'pomodoro-manager',
+      description: 'A productivity app built with React for managing Pomodoro timers, helping users stay focused with customizable work sessions and breaks.',
+      links: [
+        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/Pomodoro-Manager' },
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/Pomodoro-Manager/' }
+      ]
     }
   ],
   vscode: [
