@@ -13,6 +13,17 @@
   --card-bg-dark: #1a1a1a;
   --code-bg-light: #f5f5f5;
   --code-bg-dark: #151515;
+
+  /* Unified variables that switch via body class */
+  --text: var(--text-dark);
+  --text-muted: var(--text-muted-dark);
+  --border: var(--border-dark);
+}
+
+body.light {
+  --text: var(--text-light);
+  --text-muted: var(--text-muted-light);
+  --border: var(--border-light);
 }
 
 * {

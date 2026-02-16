@@ -1,23 +1,21 @@
 .profile-toggle-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-  background: var(--card-bg-dark); /* Default for dark mode */
-  border-radius: 30px;
-  padding: 6px;
+  background: var(--bg-dark);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid var(--border-dark);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  margin: 0 auto 40px auto;
+  position: relative;
+  z-index: 10;
 }
 
 .toggle-btn {
   background: transparent;
   border: none;
-  color: var(--text-muted-dark);
+  color: var(--text-muted);
   padding: 10px 24px;
   font-size: 14px;
   font-weight: 500;
@@ -44,16 +42,15 @@
 /* Light Mode Overrides */
 body.light .profile-toggle-container {
   background: var(--bg-dark); /* User explicitly asked for dark background here in light mode */
-  border-color: var(--border-dark);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 body.light .toggle-btn {
-  color: var(--text-muted-dark); /* Since container is dark, text must be suitable for dark bg */
+  color: var(--text-muted-dark); 
 }
 
 body.light .toggle-btn:hover {
-  color: var(--text-dark); /* Hover on dark bg */
+  color: var(--text-dark); 
   background: rgba(255, 255, 255, 0.1);
 }
 

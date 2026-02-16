@@ -3,7 +3,7 @@
   top: 20px;
   right: 20px;
   background: none;
-  border: 1px solid var(--border-dark);
+  border: 1px solid var(--border);
   padding: 10px;
   border-radius: 6px;
   cursor: pointer;
@@ -11,15 +11,13 @@
   font-size: 16px;
   transition: all 0.3s ease;
   background: var(--bg-dark);
-  color: var(--text-dark);
+  color: var(--text);
   z-index: 1000;
   animation: float 3s ease-in-out infinite;
 }
 
 body.light .theme-toggle {
-  border-color: var(--border-light);
   background: var(--bg-light);
-  color: var(--text-light);
 }
 
 .theme-toggle:hover {

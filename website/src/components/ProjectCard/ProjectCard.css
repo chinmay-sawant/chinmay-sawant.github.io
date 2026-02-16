@@ -1,6 +1,6 @@
 .project-card {
   background: var(--card-bg-dark);
-  border: 1px solid var(--border-dark);
+  border: 1px solid var(--border);
   border-radius: 6px;
   padding: 20px;
   transition: all 0.3s ease;
@@ -31,7 +31,6 @@
 
 body.light .project-card {
   background: var(--card-bg-light);
-  border-color: var(--border-light);
 }
 
 .project-card:hover {
@@ -44,26 +43,22 @@ body.light .project-card {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 12px;
-  color: var(--text-dark);
+  color: var(--text);
   position: relative;
   z-index: 1;
 }
 
-body.light .project-card h3 {
-  color: var(--text-light);
-}
+/* removed h3 override because it uses --text now */
 
 .project-card p {
   font-size: 13px;
-  color: var(--text-muted-dark);
+  color: var(--text-muted);
   margin-bottom: 16px;
   position: relative;
   z-index: 1;
 }
 
-body.light .project-card p {
-  color: var(--text-muted-light);
-}
+/* removed p override because it uses --text-muted now */
 
 .project-card a {
   color: var(--accent);

@@ -11,9 +11,9 @@
 
 .interest-item {
   background: var(--code-bg-dark);
-  color: var(--text-muted-dark);
+  color: var(--text-muted);
   padding: 8px 14px;
-  border: 1px solid var(--border-dark);
+  border: 1px solid var(--border);
   border-radius: 4px;
   font-size: 12px;
   display: flex;
@@ -40,8 +40,6 @@
 
 body.light .interest-item {
   background: var(--code-bg-light);
-  color: var(--text-muted-light);
-  border-color: var(--border-light);
 }
 
 body.light .interest-item:hover {

@@ -1,19 +1,17 @@
 .header {
   margin-bottom: 60px;
   padding-bottom: 30px;
-  border-bottom: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border);
   animation: slideInLeft 0.8s ease-out;
 }
 
-body.light .header {
-  border-bottom-color: var(--border-light);
-}
+/* removed header override */
 
 .header h1 {
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 8px;
-  color: var(--text-dark);
+  color: var(--text);
   position: relative;
   overflow: hidden;
   white-space: nowrap;
@@ -21,20 +19,16 @@ body.light .header {
   animation: typing 2s steps(15, end), blink 0.75s step-end infinite;
 }
 
-body.light .header h1 {
-  color: var(--text-light);
-}
+/* removed h1 override */
 
 .header .subtitle {
   font-size: 16px;
-  color: var(--text-muted-dark);
+  color: var(--text-muted);
   margin-bottom: 20px;
   animation: slideInRight 0.8s ease-out 0.3s both;
 }
 
-body.light .header .subtitle {
-  color: var(--text-muted-light);
-}
+/* removed subtitle override */
 
 .header .links {
   display: flex;

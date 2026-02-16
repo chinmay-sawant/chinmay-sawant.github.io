@@ -7,7 +7,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div className="project-card">
-      <h3 style={{color: 'white'}}>{project.title}</h3>
+      <h3>{project.title}</h3>
       <p>{project.description}</p>
       
       {project.badges && (

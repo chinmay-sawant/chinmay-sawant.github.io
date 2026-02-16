@@ -7,7 +7,7 @@
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: var(--text-dark);
+  color: var(--text);
   position: relative;
 }
 
@@ -26,16 +26,12 @@
   width: 100%;
 }
 
-body.light .section h2 {
-  color: var(--text-light);
-}
+/* removed h2 override */
 
 .section p {
   margin-bottom: 16px;
-  color: var(--text-dark);
+  color: var(--text);
   animation: fadeInUp 0.6s ease-out;
 }
 
-body.light .section p {
-  color: var(--text-light);
-}
+/* removed p override */

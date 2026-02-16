@@ -6,7 +6,7 @@
   margin-bottom: 30px;
   padding: 20px;
   background: var(--card-bg-dark);
-  border: 1px solid var(--border-dark);
+  border: 1px solid var(--border);
   border-radius: 6px;
   border-left: 3px solid var(--accent);
   transition: all 0.3s ease;
@@ -22,20 +22,16 @@
 
 body.light .experience-item {
   background: var(--card-bg-light);
-  border-color: var(--border-light);
-  border-left-color: var(--accent);
 }
 
 .experience-item h3 {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 4px;
-  color: var(--text-dark);
+  color: var(--text);
 }
 
-body.light .experience-item h3 {
-  color: var(--text-light);
-}
+/* removed h3 override */
 
 .experience-item .role {
   font-size: 14px;
@@ -45,19 +41,15 @@ body.light .experience-item h3 {
 
 .experience-item .duration {
   font-size: 12px;
-  color: var(--text-muted-dark);
+  color: var(--text-muted);
   margin-bottom: 12px;
 }
 
-body.light .experience-item .duration {
-  color: var(--text-muted-light);
-}
+/* removed duration override */
 
 .experience-item p {
   font-size: 13px;
-  color: var(--text-muted-dark);
+  color: var(--text-muted);
 }
 
-body.light .experience-item p {
-  color: var(--text-muted-light);
-}
+/* removed p override */
