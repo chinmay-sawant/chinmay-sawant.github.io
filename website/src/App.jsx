@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ProfileToggleButton from './components/ProfileToggleButton/ProfileToggleButton';
 import ArticleList from './components/Articles/ArticleList';
-import CatCompanion from './components/CatCompanion/CatCompanion';
+
 import { useTheme } from './hooks/useTheme';
 import { useScrollAnimation } from './hooks/useScrollAnimation';
 import ThemeToggle from './components/ThemeToggle/ThemeToggle';
@@ -42,7 +42,7 @@ function App() {
           </div>
         )}
       </div>
-      <CatCompanion />
+
       <Footer />
     </>
   );

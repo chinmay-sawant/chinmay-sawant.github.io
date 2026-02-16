@@ -1,60 +1,88 @@
 .profile-toggle-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   background: var(--bg-dark);
   padding: 4px;
-  border-radius: 12px;
+  border-radius: 24px;
   border: 1px solid var(--border);
   gap: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   width: fit-content;
+  min-width: 200px;
   margin: 0 auto 40px auto;
   position: relative;
   z-index: 10;
+  overflow: hidden; /* Ensure slider stays inside */
 }
 
+/* The sliding highlight pill */
+.toggle-slider {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px; /* Default start position */
+  width: calc(50% - 6px); /* (100% - 8px padding - 4px gap) / 2 */
+  background: var(--accent);
+  border-radius: 20px;
+  transition: left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 8px rgba(0, 122, 204, 0.3);
+  z-index: 1;
+}
+
+/* Slide positions based on parent class */
+.profile-toggle-container.show-profile .toggle-slider {
+  left: 4px;
+}
+
+.profile-toggle-container.show-articles .toggle-slider {
+  left: calc(50% + 2px); /* 50% + half-gap */
+}
+
+
 .toggle-btn {
-  background: transparent;
+  background: transparent !important;
   border: none;
   color: var(--text-muted);
-  padding: 10px 24px;
+  padding: 10px 0; /* Center text */
+  text-align: center;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   border-radius: 24px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.3s ease;
   font-family: inherit;
   position: relative;
-  overflow: hidden;
+  z-index: 2; /* Text above slider */
+  width: 100%;
 }
 
 .toggle-btn:hover {
   color: var(--text-dark);
-  background: rgba(255, 255, 255, 0.05);
 }
 
-.toggle-btn.active {
-  background: var(--accent);
-  color: #ffffff; /* Always white text on accent color */
+/* Selected state - just text color change */
+.toggle-btn.selected {
+  color: #ffffff; /* Always white on top of accent */
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0, 122, 204, 0.3); /* Accent shadow */
+  animation: none; /* Override global .active animation if it leaks, though we renamed class */
 }
+
 
 /* Light Mode Overrides */
 body.light .profile-toggle-container {
-  background: var(--bg-dark); /* User explicitly asked for dark background here in light mode */
+  background: #f5f5f5;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
 }
 
 body.light .toggle-btn {
-  color: var(--text-muted-dark); 
+  color: #666; 
 }
 
 body.light .toggle-btn:hover {
-  color: var(--text-dark); 
-  background: rgba(255, 255, 255, 0.1);
+  color: #333; 
 }
 
-body.light .toggle-btn.active {
-  background: var(--accent);
+body.light .toggle-btn.selected {
   color: #ffffff;
 }

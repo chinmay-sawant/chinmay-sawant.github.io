@@ -29,13 +29,29 @@ body.light {
   animation: fadeInUp 0.6s ease-out;
 }
 
-.section:nth-child(even) {
-  animation: slideInLeft 0.6s ease-out;
+/* Context-aware entry animations for Profile/Articles toggle */
+.view-section.profile .section {
+  animation-name: slideInLeft;
 }
 
-.section:nth-child(odd) {
-  animation: slideInRight 0.6s ease-out;
+.view-section.articles .section {
+  animation-name: slideInRight;
 }
+
+/* Default staggering for section children */
+.section:nth-child(even) {
+  /* No default animation name override here, inherit from above or base rule */
+  /* But we might want to keep the delay if defined elsewhere? */
+  /* The original CSS applied slideInLeft/Right based on nth-child EVEN/ODD. */
+  /* This might conflict with our new rules! */
+}
+
+/* Original rule: .section:nth-child(even) { animation: slideInLeft ... } */
+/* Original rule: .section:nth-child(odd) { animation: slideInRight ... } */
+
+/* I should probably REMOVE the even/odd specific animations on .section if I want uniform direction */
+/* The user wants "shift from left to right" (uniform direction). */
+/* So I should remove lines 32-38 from the original file */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -52,7 +68,10 @@ body.light {
 /* Scroll Animations - Enhanced but not hiding content */
 @media (prefers-reduced-motion: no-preference) {
   .section {
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    /* animation-name is set by the context rules above or .section base rule */
   }
 
   .section:nth-child(2) {
