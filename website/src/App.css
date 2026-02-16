@@ -1,11 +1,12 @@
 @import './styles/variables.css';
 @import './styles/animations.css';
+@import './styles/transitions.css';
 
 body {
   font-family: "JetBrains Mono", monospace;
   line-height: 1.6;
   font-size: 14px;
-  transition: all 0.3s ease;
+  transition: background-color 0.5s ease, color 0.5s ease;
   background: var(--bg-dark);
   color: var(--text-dark);
   overflow-x: hidden;

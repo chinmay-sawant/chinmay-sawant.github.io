@@ -1,5 +1,5 @@
 import React from 'react';
-import { interestsData } from '../utils/data';
+import { interestsData } from '../../utils/data';
 import './Interests.css';
 
 const Interests = () => {

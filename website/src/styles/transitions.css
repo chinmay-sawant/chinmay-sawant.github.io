@@ -1,0 +1,34 @@
+/* Page Transition Animations */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.view-section {
+  width: 100%;
+}
+
+.view-section.articles {
+  animation: slideInFromRight 0.4s cubic-bezier(0.2, 0.0, 0.2, 1) forwards;
+}
+
+.view-section.profile {
+  animation: slideInFromLeft 0.4s cubic-bezier(0.2, 0.0, 0.2, 1) forwards;
+}

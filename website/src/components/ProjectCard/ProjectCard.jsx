@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGitHubStars } from '../hooks/useGitHubStars';
+import { useGitHubStars } from '../../hooks/useGitHubStars';
 import './ProjectCard.css';
 
 const ProjectCard = ({ project }) => {
