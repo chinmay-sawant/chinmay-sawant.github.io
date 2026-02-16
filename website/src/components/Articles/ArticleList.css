@@ -1,0 +1,6 @@
+.article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* animation handled by parent view-section */
+}

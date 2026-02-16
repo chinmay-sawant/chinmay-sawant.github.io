@@ -1,0 +1,83 @@
+.header {
+  margin-bottom: 60px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+  animation: slideInLeft 0.8s ease-out;
+}
+
+/* removed header override */
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--accent);
+  animation: typing 2s steps(15, end), blink 0.75s step-end infinite;
+}
+
+/* removed h1 override */
+
+.header .subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  animation: slideInRight 0.8s ease-out 0.3s both;
+}
+
+/* removed subtitle override */
+
+.header .links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.header .links a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.header .links a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 122, 204, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.header .links a:hover::before {
+  left: 100%;
+}
+
+.header .links a:hover {
+  border-bottom-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .header .links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
