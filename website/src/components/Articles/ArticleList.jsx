@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ArticleCard from './ArticleCard';
 import articlesData from '../../data/articles.json';
 import './ArticleList.css';

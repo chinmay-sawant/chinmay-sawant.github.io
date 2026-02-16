@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { experienceData } from '../../utils/data';
 import './Experience.css';
 

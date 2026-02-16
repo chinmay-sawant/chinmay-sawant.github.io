@@ -1,4 +1,4 @@
-import React from 'react';
+
 import ProjectCard from '../ProjectCard/ProjectCard';
 import { projectsdata } from '../../utils/projectsData';
 import './Projects.css';

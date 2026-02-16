@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useGitHubStars } from '../../hooks/useGitHubStars';
 import './ProjectCard.css';
 

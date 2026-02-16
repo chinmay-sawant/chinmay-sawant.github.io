@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './ProfileToggleButton.css';
 
 const ProfileToggleButton = ({ view, setView }) => {

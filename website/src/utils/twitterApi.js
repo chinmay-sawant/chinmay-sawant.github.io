@@ -12,7 +12,7 @@
  * For now, this function mimics an API call with latency and returns
  * the data provided in articles.json, potentially with slight "live" updates.
  */
-export const fetchTweetMetrics = async (tweetId) => {
+export const fetchTweetMetrics = async () => {
   return new Promise((resolve) => {
     // Simulate network latency (300ms - 800ms)
     const latency = Math.floor(Math.random() * 500) + 300;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ProfileToggleButton from './components/ProfileToggleButton/ProfileToggleButton';
 import ArticleList from './components/Articles/ArticleList';
 
