@@ -1,52 +1,90 @@
-
 import { useGitHubStars } from '../../hooks/useGitHubStars';
 import './ProjectCard.css';
 
+const formatLinkLabel = (text) => {
+  const normalized = text.replace(' →', '').trim().toLowerCase();
+
+  if (normalized.includes('view_source') || normalized === 'view source') {
+    return '📂 view_source';
+  }
+  if (normalized.includes('live_demo') || normalized === 'live demo') {
+    return '🚀 live_demo';
+  }
+  if (normalized.includes('vscode')) {
+    return '🧩 vscode marketplace';
+  }
+  if (normalized.includes('chrome_store') || normalized.includes('chrome store')) {
+    return '🌐 chrome_store';
+  }
+
+  return text.replace(' →', '');
+};
+
 const ProjectCard = ({ project }) => {
   const stars = useGitHubStars(project.stars);
+  const chromeRating = project.chromeRating ?? project.chromerating;
 
   return (
-    <div className="project-card">
-      <h3>{project.title}</h3>
-      <p>{project.description}</p>
-      
+    <article className="project-card">
+      <div className="project-card-header">
+        <h3 className="project-card-title">{project.title}</h3>
+        {project.stars && stars && stars !== 'N/A' && (
+          <a
+            href={project.links[0]?.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-stars"
+            aria-label={`${stars} GitHub stars`}
+          >
+            ⭐ <span>{stars}</span>
+          </a>
+        )}
+      </div>
+
+      <p className="project-card-description">{project.description}</p>
+
       {project.badges && (
         <div className="project-badges">
           {project.badges.map((badge, index) => (
-            <a key={index} href={project.links[0]?.url} target="_blank" rel="noopener noreferrer" aria-label={badge.alt}>
+            <a
+              key={index}
+              href={project.links[0]?.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={badge.alt}
+            >
               <img src={badge.src} alt={badge.alt} />
             </a>
           ))}
         </div>
       )}
-      
+
       <div className="project-links">
         {project.links.map((link, index) => (
-          <a key={index} href={link.url} target="_blank" rel="noopener noreferrer" className={link.icon ? 'chrome-store-link' : ''}>
-            {link.icon && <img src={link.icon} alt="Chrome" style={{ width: '14px', height: '14px', marginRight: '4px', verticalAlign: 'middle' }} />}
-            {link.text}
+          <a
+            key={index}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link"
+          >
+            {link.icon && (
+              <img src={link.icon} alt="" className="project-link-icon" />
+            )}
+            {formatLinkLabel(link.text)}
           </a>
         ))}
-        
-        {project.stars && (
-          <a 
-            href={project.links[0]?.url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="github-stars"
-          >
-            ⭐ <span className="star-count">{stars}</span>
-          </a>
-        )}
-        
-        {project.chromeRating && (
-          <span className="chrome-rating">
-            ⭐ <span className="rating-score">{project.chromeRating.rating.toFixed(1)}</span>{' '}
-            (<span className="rating-count">{project.chromeRating.reviewCount}</span> reviews)
+
+        {chromeRating && (
+          <span className="project-rating">
+            ⭐ {chromeRating.rating.toFixed(1)}
+            <span className="project-rating-count">
+              ({chromeRating.reviewcount ?? chromeRating.reviewCount} reviews)
+            </span>
           </span>
         )}
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -23,8 +23,21 @@ const ArticleCard = ({ article }) => {
     window.open(article.url, '_blank', 'noopener,noreferrer');
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
-    <div className="article-card" onClick={handleClick}>
+    <div
+      className="article-card"
+      role="link"
+      tabIndex={0}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+    >
       <div className="article-header">
         <div className="article-header-left">
           <img

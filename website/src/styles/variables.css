@@ -1,29 +1,33 @@
 :root {
-  --bg-light: #ffffff;
-  --bg-dark: #0a0a0a;
-  --text-light: #2c2c2c;
-  --text-dark: #e5e5e5;
-  --text-muted-light: #666666;
-  --text-muted-dark: #a0a0a0;
-  --border-light: #e0e0e0;
-  --border-dark: #2a2a2a;
-  --accent: #007acc;
-  --accent-hover: #005a9e;
-  --card-bg-light: #fafafa;
-  --card-bg-dark: #1a1a1a;
-  --code-bg-light: #f5f5f5;
-  --code-bg-dark: #151515;
-
-  /* Unified variables that switch via body class */
-  --text: var(--text-dark);
-  --text-muted: var(--text-muted-dark);
-  --border: var(--border-dark);
+  --bg: #09090b;
+  --bg-elevated: #18181b;
+  --bg-subtle: #27272a;
+  --text: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+  --border: #27272a;
+  --border-subtle: #3f3f46;
+  --accent: #00add8;
+  --accent-muted: rgba(0, 173, 216, 0.12);
+  --accent-hover: #33bddf;
+  --font-sans: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --max-width: 680px;
+  --section-gap: 72px;
 }
 
 body.light {
-  --text: var(--text-light);
-  --text-muted: var(--text-muted-light);
-  --border: var(--border-light);
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #f4f4f5;
+  --text: #09090b;
+  --text-secondary: #52525b;
+  --text-tertiary: #71717a;
+  --border: #e4e4e7;
+  --border-subtle: #d4d4d8;
+  --accent-muted: rgba(0, 173, 216, 0.08);
 }
 
 * {

@@ -1,11 +1,8 @@
 .footer {
   margin-top: 80px;
-  padding-top: 30px;
+  padding-top: 24px;
   border-top: 1px solid var(--border);
   text-align: center;
-  color: var(--text-muted);
   font-size: 12px;
-  animation: fadeInUp 0.8s ease-out;
+  color: var(--text-tertiary);
 }
-
-/* removed footer override */
