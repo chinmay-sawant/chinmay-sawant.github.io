@@ -12,10 +12,10 @@ const About = () => {
       <div className="section-body">
         <p>
           Polyglot systems engineer with 6.4 years of experience across
-          healthcare and edtech. My foundation is in Java and Python — Spring
+          healthcare and edtech. My foundation is in Java and Python - Spring
           Boot services, JasperReports reporting, bulk PDF generation, and 40+
           automation utilities that cut manual work from days to minutes. Over
-          the last 2 years working as a Golang developer at CitiusTech — 40+
+          the last 2 years working as a Golang developer at CitiusTech - 40+
           AWS Lambda microservices with gRPC and GraphQL, plus open source
           projects like{' '}
           <GitHubRepoLink
@@ -46,13 +46,13 @@ const About = () => {
         </p>
         <p>
           I use AI-assisted development (Copilot, Windsurf, Codex, Opencode, Cursor) to ship faster and
-          pick up new stacks quickly — which is how I&apos;ve moved from
+          pick up new stacks quickly - which is how I&apos;ve moved from
           Java/Python backends into Go microservices and now Rust for static
           analysis tooling.
         </p>
         <p>
           Beyond my day-to-day project work, I like to explore other
-          technologies and stacks — VS Code extensions, Chrome extensions, and
+          technologies and stacks - VS Code extensions, Chrome extensions, and
           side projects in languages I haven&apos;t used at work yet.
         </p>
       </div>

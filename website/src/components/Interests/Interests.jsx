@@ -12,7 +12,8 @@ const Interests = () => {
       <ul className="interests-list">
         {interestsData.map((interest, index) => (
           <li key={index} className="interest-item">
-            {interest}
+            <span className="interest-icon" aria-hidden="true">{interest.icon}</span>
+            {interest.name}
           </li>
         ))}
       </ul>

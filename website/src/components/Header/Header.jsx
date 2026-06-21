@@ -41,7 +41,7 @@ const Header = ({ view, setView }) => {
           6.4 years across <span className="hero-accent">Java</span>,{' '}
           <span className="hero-accent">Python</span>, and{' '}
           <span className="hero-accent">Go</span> in healthcare &amp; edtech.
-          Over the last 2 years working as a Golang developer at CitiusTech —
+          Over the last 2 years working as a Golang developer at CitiusTech -
           building microservices, optimizing{' '}
           <GitHubRepoLink
             repo="chinmay-sawant/gopdfsuit"

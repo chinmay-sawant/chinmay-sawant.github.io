@@ -104,10 +104,10 @@ export const experienceData = [
 ];
 
 export const interestsData = [
-  'book reading',
-  'cycling',
-  'music',
-  'exploring tech',
-  'chess',
-  'space enthusiast',
+  { name: 'book reading', icon: '📚' },
+  { name: 'cycling', icon: '🚴' },
+  { name: 'music', icon: '🎵' },
+  { name: 'exploring tech', icon: '💻' },
+  { name: 'chess', icon: '♟️' },
+  { name: 'space enthusiast', icon: '🚀' },
 ];
