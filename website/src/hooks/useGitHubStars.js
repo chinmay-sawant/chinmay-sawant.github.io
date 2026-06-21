@@ -1,31 +1,15 @@
-import { useState, useEffect } from 'react';
-import { fetchGitHubStars } from '../utils/github';
+import { useContext } from 'react';
+import { GitHubStarsContext } from '../context/githubStarsContext';
 
 export const useGitHubStars = (repo) => {
-  const [stars, setStars] = useState(null);
-  const [loading, setLoading] = useState(Boolean(repo));
+  const { starsMap, loading } = useContext(GitHubStarsContext);
 
-  useEffect(() => {
-    if (!repo) {
-      setStars(null);
-      setLoading(false);
-      return;
-    }
+  if (!repo) {
+    return { stars: null, loading: false };
+  }
 
-    let cancelled = false;
-    setLoading(true);
-
-    fetchGitHubStars(repo).then((count) => {
-      if (!cancelled) {
-        setStars(count);
-        setLoading(false);
-      }
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [repo]);
-
-  return { stars, loading };
+  return {
+    stars: starsMap[repo.toLowerCase()] ?? null,
+    loading,
+  };
 };

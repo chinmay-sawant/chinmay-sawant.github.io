@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import GitHubStarsProvider from './context/GitHubStarsProvider';
 import ArticleList from './components/Articles/ArticleList';
 import { useTheme } from './hooks/useTheme';
 import ThemeToggle from './components/ThemeToggle/ThemeToggle';
@@ -16,6 +17,7 @@ function App() {
   const [view, setView] = useState('profile');
 
   return (
+    <GitHubStarsProvider>
     <div className="site">
       <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       <div className="container">
@@ -38,6 +40,7 @@ function App() {
         <Footer />
       </div>
     </div>
+    </GitHubStarsProvider>
   );
 }
 

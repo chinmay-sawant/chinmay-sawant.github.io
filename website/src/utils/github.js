@@ -1,5 +1,7 @@
-const starsCache = new Map();
-const pendingFetches = new Map();
+const GITHUB_USER = 'chinmay-sawant';
+
+let starsMapCache = null;
+let starsMapPromise = null;
 
 export const parseGitHubRepo = (url) => {
   if (!url) return null;
@@ -20,33 +22,44 @@ export const getGitHubRepo = (project) => {
   return githubLink ? parseGitHubRepo(githubLink.url) : null;
 };
 
+export const fetchAllGitHubStars = async () => {
+  if (starsMapCache) return starsMapCache;
+
+  if (!starsMapPromise) {
+    starsMapPromise = fetch(
+      `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`,
+      { headers: { Accept: 'application/vnd.github+json' } },
+    )
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error(`GitHub API responded with ${response.status}`);
+        }
+        const repos = await response.json();
+        const map = {};
+
+        for (const repo of repos) {
+          const key = `${repo.owner.login}/${repo.name}`.toLowerCase();
+          map[key] = repo.stargazers_count;
+        }
+
+        starsMapCache = map;
+        return map;
+      })
+      .catch((error) => {
+        console.warn('Unable to load GitHub star counts:', error.message);
+        starsMapCache = {};
+        return {};
+      })
+      .finally(() => {
+        starsMapPromise = null;
+      });
+  }
+
+  return starsMapPromise;
+};
+
 export const fetchGitHubStars = async (repo) => {
   if (!repo) return null;
-
-  if (starsCache.has(repo)) {
-    return starsCache.get(repo);
-  }
-
-  if (pendingFetches.has(repo)) {
-    return pendingFetches.get(repo);
-  }
-
-  const request = fetch(`https://api.github.com/repos/${repo}`)
-    .then(async (response) => {
-      if (!response.ok) throw new Error('Failed to fetch');
-      const data = await response.json();
-      const count = data.stargazers_count ?? null;
-      starsCache.set(repo, count);
-      pendingFetches.delete(repo);
-      return count;
-    })
-    .catch((error) => {
-      console.error(`Error fetching GitHub stars for ${repo}:`, error);
-      starsCache.set(repo, null);
-      pendingFetches.delete(repo);
-      return null;
-    });
-
-  pendingFetches.set(repo, request);
-  return request;
+  const map = await fetchAllGitHubStars();
+  return map[repo.toLowerCase()] ?? null;
 };
