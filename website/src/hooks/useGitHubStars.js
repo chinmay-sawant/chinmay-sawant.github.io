@@ -1,25 +1,31 @@
 import { useState, useEffect } from 'react';
+import { fetchGitHubStars } from '../utils/github';
 
 export const useGitHubStars = (repo) => {
-  const [stars, setStars] = useState('Loading...');
+  const [stars, setStars] = useState(null);
+  const [loading, setLoading] = useState(Boolean(repo));
 
   useEffect(() => {
-    if (!repo) return;
+    if (!repo) {
+      setStars(null);
+      setLoading(false);
+      return;
+    }
 
-    const fetchStars = async () => {
-      try {
-        const response = await fetch(`https://api.github.com/repos/${repo}`);
-        if (!response.ok) throw new Error('Failed to fetch');
-        const data = await response.json();
-        setStars(data.stargazers_count);
-      } catch (error) {
-        console.error('Error fetching GitHub stars:', error);
-        setStars('N/A');
+    let cancelled = false;
+    setLoading(true);
+
+    fetchGitHubStars(repo).then((count) => {
+      if (!cancelled) {
+        setStars(count);
+        setLoading(false);
       }
-    };
+    });
 
-    fetchStars();
+    return () => {
+      cancelled = true;
+    };
   }, [repo]);
 
-  return stars;
+  return { stars, loading };
 };

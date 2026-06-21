@@ -1,10 +1,9 @@
-
 import './Footer.css';
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>© 2025 chinmay_sawant. built with ❤️</p>
+      <p>© 2026 Chinmay Sawant</p>
     </footer>
   );
 };

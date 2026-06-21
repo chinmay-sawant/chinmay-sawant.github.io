@@ -1,85 +1,82 @@
-import { useState, useEffect } from 'react';
 import './ArticleCard.css';
-import { fetchTweetMetrics } from '../../utils/twitterApi';
 
-// Move SVG Icons outside of component to avoid re-creation on every render
+const HeartIcon = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+);
+
 const CommentIcon = () => (
-  <svg viewBox="0 0 24 24"><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.25c-4.42 0-8.004-3.58-8.004-8.01z"></path></svg>
+  <svg viewBox="0 0 24 24" width="16" height="16">
+    <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/>
+  </svg>
 );
 
-const RetweetIcon = () => (
-  <svg viewBox="0 0 24 24"><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></svg>
-);
-
-const LikeIcon = () => (
-  <svg viewBox="0 0 24 24"><path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.605 3.01.894 1.81.846 4.17-.514 6.67z"></path></svg>
-);
-
-const AnalyticsIcon = () => (
-  <svg viewBox="0 0 24 24"><path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z"></path></svg>
+const BookmarkIcon = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16">
+    <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+  </svg>
 );
 
 const ArticleCard = ({ article }) => {
-  const [metrics, setMetrics] = useState(article.metrics);
-
-  useEffect(() => {
-    const loadMetrics = async () => {
-        if (article.id) {
-            try {
-                const latest = await fetchTweetMetrics(article.id);
-                setMetrics(prev => ({...prev, ...latest}));
-            } catch (error) {
-                console.error("Failed to fetch metrics", error);
-            }
-        }
-    };
-    loadMetrics();
-  }, [article.id]);
-
   const handleClick = () => {
-    window.open(article.link, '_blank', 'noopener,noreferrer');
+    window.open(article.url, '_blank', 'noopener,noreferrer');
   };
-  
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
-    <div className="article-card" onClick={handleClick}>
+    <div
+      className="article-card"
+      role="link"
+      tabIndex={0}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+    >
       <div className="article-header">
         <div className="article-header-left">
-          <img 
-            src={article.author?.avatar} 
-            alt="Avatar" 
+          <img
+            src={article.user.profile_image_90}
+            alt={article.user.name}
             className="article-author-avatar"
-            onError={(e) => {
-              e.target.onerror = null; 
-              e.target.src = 'https://pbs.twimg.com/profile_images/1966744132862480384/OZjQEZwK_400x400.jpg';
-            }}
           />
-          <span className="article-author-name">{article.author?.name || 'Unknown'}</span>
-          <span className="article-author-handle">{article.author?.handle || 'unknown'}</span>
-          <span>·</span>
-          <span>{article.timestamp?.split('·')[1]?.trim() || article.timestamp}</span>
+          <div className="article-author-info">
+            <span className="article-author-name">{article.user.name}</span>
+            <span className="article-author-meta">
+              {article.readable_publish_date} · {article.reading_time_minutes} min read
+            </span>
+          </div>
         </div>
       </div>
-      
+
       <div className="article-content">
-        {article.text}
+        <h3 className="article-title">{article.title}</h3>
+        <p className="article-description">{article.description}</p>
+      </div>
+
+      <div className="article-tags">
+        {article.tag_list.map(tag => (
+          <span key={tag} className="tag">#{tag}</span>
+        ))}
       </div>
 
       <div className="article-footer">
         <div className="metric">
+          <HeartIcon />
+          <span>{article.public_reactions_count}</span>
+        </div>
+        <div className="metric">
           <CommentIcon />
-          <span>{metrics?.comments || 0}</span>
+          <span>{article.comments_count}</span>
         </div>
         <div className="metric">
-          <RetweetIcon />
-          <span>{metrics?.retweets || 0}</span>
-        </div>
-        <div className="metric">
-          <LikeIcon />
-          <span>{metrics?.likes || 0}</span>
-        </div>
-        <div className="metric">
-          <AnalyticsIcon />
-          <span>{metrics?.views || 0}</span>
+          <BookmarkIcon />
+          <span>{article.reading_time_minutes} min</span>
         </div>
       </div>
     </div>

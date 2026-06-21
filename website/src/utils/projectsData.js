@@ -1,170 +1,166 @@
 export const projectsdata = {
-  python: [
+  rust: [
     {
-      title: 'motionsaver',
-      description: 'a screensaver application inspired by wallpaper engine. features dynamic video backgrounds, real-time widgets (weather, stocks, media player), multi-monitor support, advanced security with windows api integration. built with python, opencv.',
-      badges: [
-        { src: 'https://raw.githubusercontent.com/chinmay-sawant/motionsaver/master/.github/badges/views_badge.svg', alt: 'views' },
-        { src: 'https://raw.githubusercontent.com/chinmay-sawant/motionsaver/master/.github/badges/total_downloads_badge.svg', alt: 'downloads' }
-      ],
+      title: 'slopguard',
+      description:
+        'Enhanced rewrite of deslop with improved architecture and performance heuristics. Language-agnostic static analysis built in Rust using Tree-sitter - supports Go, Python, and Rust codebases. Active development.',
       links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/motionsaver' }
-      ]
-    }
+        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/SlopGuard' },
+      ],
+      active: true,
+    },
+    {
+      title: 'deslop',
+      description:
+        'Language-agnostic, ultra-fast best practice analyzer built in Rust with Tree-sitter. Heuristics for code quality, security, and performance across Go, Python, and Rust codebases.',
+      links: [
+        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/deslop' },
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/deslop/' },
+      ],
+      stars: 'chinmay-sawant/deslop',
+    },
   ],
   go: [
     {
       title: 'gopdfsuit',
-      description: 'comprehensive web service for pdf generation using go and gin framework. features template-based pdf creation, html to pdf conversion, pdf merging, form filling, multi-page support with automatic page breaks, and interactive web interfaces. supports custom page sizes, font styling, tables, checkboxes, and wkhtmltopdf integration.',
+      description:
+        'High-performance PDF generation engine built from scratch in Go. PDF/UA-2 archival compliance with ultra-fast, in-memory JSON templates. Born as a cost-saving alternative to third-party PDF APIs at work.',
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/gopdfsuit' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/gopdfsuit/' }
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/gopdfsuit/' },
       ],
-      stars: 'chinmay-sawant/gopdfsuit'
+      stars: 'chinmay-sawant/gopdfsuit',
+      active: true,
     },
     {
       title: 'gomindmapper',
-      description: 'interactive function relationship visualizer for go codebases - intelligent type resolution, interface implementation detection, and external module analysis. explore repositories through an expandable, pannable, zoomable mind map.',
+      description:
+        'Code visualization tool that maps Go call graphs and repository structures. Built during a discovery phase to analyze undocumented legacy code and cut time-to-understand by 50%+.',
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/gomindmapper' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/gomindmapper/' }
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/gomindmapper/' },
       ],
-      stars: 'chinmay-sawant/gomindmapper'
+      stars: 'chinmay-sawant/gomindmapper',
     },
     {
-      title: 'codemapper',
-      description: 'tool to analyze large go codebases: automatically parse functions and call sites, generate a dependency map (codemap.json), and visualize relationships in an interactive react graph ui. backend is written in go; frontend is a browser visualizer. mit licensed.',
+      title: 'gosourcemap',
+      description:
+        'Language-agnostic code mapper for complex systems - evolution of GoMindMapper with broader language support and deeper dependency analysis.',
       links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/codemapper' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/CodeMapper/' }
-
-      ]
+        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/gosourcemap' },
+      ],
+    },
+    {
+      title: 'gochromedp',
+      description:
+        'Go wrapper around chromedp, extracted from GoPDFSuit for reusable headless Chrome automation in PDF and web rendering pipelines.',
+      links: [
+        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/gochromedp' },
+      ],
+      stars: 'chinmay-sawant/gochromedp',
     },
     {
       title: 'go_fhir_demo',
-      description: 'comprehensive go gin framework application with fhir r4 support. features postgresql database, swagger documentation, external fhir server integration, database migrations, structured logging, and clean architecture patterns.',
+      description:
+        'FHIR R4 + Gin + PostgreSQL application with Swagger docs, external FHIR server integration, database migrations, and clean architecture patterns.',
       links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/go_fhir_demo' }
-      ]
-    },
-    {
-      title: 'employee_management_system',
-      description: 'clean architecture employee management system with go and gin framework. interface-based service and controller layers, repository pattern, comprehensive testing with testify suites and gomock, swagger/openapi documentation for restful crud operations.',
-      links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/gin-example' }
-      ]
+        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/go_fhir_demo' },
+      ],
     },
     {
       title: 'go_apollo_graphql',
-      description: 'graphql server demonstration using go and gqlgen library with apollo gateway integration. showcases graphql federation capabilities, apollo router setup, and modern graphql best practices for scalable api architectures.',
+      description:
+        'GraphQL server using Go and gqlgen with Apollo Gateway integration - federation capabilities and modern GraphQL API patterns.',
       links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/go-apollo-graphql-example' }
-      ]
-    }
+        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/go-apollo-graphql-example' },
+      ],
+    },
+  ],
+  python: [
+    {
+      title: 'motionsaver',
+      description:
+        'Screensaver inspired by Wallpaper Engine - dynamic video backgrounds, real-time widgets (weather, stocks, media), multi-monitor support, and Windows API integration. Built with Python and OpenCV.',
+      badges: [
+        { src: 'https://raw.githubusercontent.com/chinmay-sawant/motionsaver/master/.github/badges/views_badge.svg', alt: 'views' },
+        { src: 'https://raw.githubusercontent.com/chinmay-sawant/motionsaver/master/.github/badges/total_downloads_badge.svg', alt: 'downloads' },
+      ],
+      links: [
+        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/motionsaver' },
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/MotionSaver/' },
+      ],
+      stars: 'chinmay-sawant/MotionSaver',
+    },
   ],
   java: [
     {
       title: 'netflix_springboot_graphql',
-      description: 'spring boot application with graphql implementation showcasing netflix dataset integration. demonstrates modern graphql api development with spring boot, utilizing kaggle netflix movies and tv shows dataset for real-world data processing.',
+      description:
+        'Spring Boot GraphQL API with Netflix movies & TV shows dataset - real-world data processing with modern GraphQL patterns.',
       links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/netflix-springboot-graphql' }
-      ]
+        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/netflix-springboot-graphql' },
+      ],
     },
     {
       title: 'url_shortener',
-      description: 'full-stack url shortening service with react frontend and java spring boot backend. redis integration for fast storage and retrieval, configurable url expiry, authentication system, seamless redirect functionality with intuitive ui.',
+      description:
+        'Full-stack URL shortener with React frontend and Spring Boot backend. Redis storage, configurable expiry, and JWT authentication.',
       links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/urlshortener' }
-      ]
+        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/urlshortener' },
+      ],
     },
-    {
-      title: 'ecommerce_learning_project',
-      description: 'spring boot learning initiative exploring modern web development. robust security with spring security and auth0 jwt authentication, spring data jpa with postgresql, comprehensive testing with junit5 and mockito, ci/cd pipelines using github actions.',
-      links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/e-commerce' }
-      ]
-    }
   ],
   react: [
     {
       title: 'rotify',
-      description: "a beautiful, modern spotify music dashboard built with react, typescript, and vite. discover your recently played tracks with stunning animations and a sleek theme system. features advanced theme system with light/dark mode, enhanced authentication, music dashboard with recently played tracks, stunning animations, and responsive design.",
+      description:
+        'Spotify receipt-style music dashboard built with React, TypeScript, and Vite. Recently played tracks, theme system, and responsive design.',
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/rotify' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/Rotify/' }
-      ]
+        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/Rotify/' },
+      ],
     },
-    {
-      title: 'text_to_speech',
-      description: "a small personal text-to-speech web app built with vite and react that uses the browser's native web speech api - no third-party tts services or signup required. features text input and speak functionality, voice selection, light/dark theme toggle, and responsive ui.",
-      links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/texttospeech' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/TextToSpeech/' }
-      ]
-    },
-    {
-      title: 'pomodoro-manager',
-      description: 'A productivity app built with React for managing Pomodoro timers, helping users stay focused with customizable work sessions and breaks.',
-      links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/Pomodoro-Manager' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/Pomodoro-Manager/' }
-      ]
-    }
   ],
   vscode: [
     {
-      title: 'codememos (dokumenter)',
-      description: 'vs code extension to collect and save code snippets with descriptions and explanations, highlight snippets in-editor, and export collected snippets to markdown files. features codelens ui, smart filename generation, and works with any language.',
+      title: 'dokumenter',
+      description:
+        'VS Code extension to collect code snippets with descriptions, highlight snippets in-editor, and export to markdown. Published on the Marketplace.',
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/dokumenter' },
-        { text: 'vscode marketplace →', url: 'https://marketplace.visualstudio.com/items?itemname=chinmay-sawant.code-snippet-collector' }
-      ]
-    }
+        { text: 'vscode marketplace →', url: 'https://marketplace.visualstudio.com/items?itemname=chinmay-sawant.code-snippet-collector' },
+      ],
+    },
   ],
   chrome: [
     {
-      title: 'gemini to markdown (gemininotetaker)',
-      description: 'chrome extension that enhances your gemini experience by converting conversations to markdown format. features direct html-to-markdown conversion, integrated utilities menu, smart filename generation, and clipboard integration for seamless workflow.',
+      title: 'gemini to markdown',
+      description:
+        'Chrome extension that converts Gemini conversations to markdown with smart filename generation and clipboard integration.',
       links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/gemini-to-markdown' }
-      ]
+        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/gemini-to-markdown' },
+      ],
     },
     {
       title: 'youtube comments tracker',
-      description: 'chrome extension that displays live-updating comments from specific users and/or comments containing timestamps on youtube video pages in a transparent, draggable overlay. features real-time comment monitoring, user-specific filtering, automatic timestamp detection, and dual mode operation for enhanced youtube viewing experience.',
+      description:
+        'Chrome extension with live-updating comment overlay on YouTube - user filtering, timestamp detection, and draggable transparent UI.',
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/youtubecommentstracker' },
         { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/YoutubeCommentsViewer/' },
-        { text: 'chrome_store →', url: 'https://chromewebstore.google.com/detail/youtube-user-comment-view/monlejnbfmbmokaeopljdejmldiinpmb?authuser=0&hl=en', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg' }
+        { text: 'chrome_store →', url: 'https://chromewebstore.google.com/detail/youtube-user-comment-view/monlejnbfmbmokaeopljdejmldiinpmb', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg' },
       ],
-      chromerating: { rating: 5.0, reviewcount: 4 }
+      chromerating: { rating: 5.0, reviewcount: 4 },
     },
     {
       title: 'aura tube',
-      description: 'chrome extension to customize youtube\'s grid layout - change the number of columns (1–20), adjust spacing (compact/normal/comfortable), and apply changes in real-time with persistent settings saved to the browser.',
+      description:
+        'Chrome extension to customize YouTube grid layout - adjustable columns (1–20), spacing presets, and persistent settings.',
       links: [
         { text: 'view_source →', url: 'https://github.com/chinmay-sawant/auratubeextension' },
         { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/AuraTubeExtension/' },
-        { text: 'chrome_store →', url: 'https://chromewebstore.google.com/detail/anokmndlhnkfbjbjolamicemoijgoeea?utm_source=item-share-cb', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg' }
-      ]
-    }
-  ],
-  vibe: [
-    {
-      title: 'blackhole simulation',
-      description: 'interactive blackhole simulation created using gemini ai. features realistic gravitational effects and particle physics visualization. built with html5 canvas and javascript for an immersive space experience. best viewed in 1024x768 resolution.',
-      links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/blackhole_simulation' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/Blackhole_Simulation/' }
-      ]
+        { text: 'chrome_store →', url: 'https://chromewebstore.google.com/detail/anokmndlhnkfbjbjolamicemoijgoeea', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg' },
+      ],
     },
-    {
-      title: 'dyson swarms',
-      description: 'futuristic dyson swarm visualization created with gemini ai. demonstrates the concept of solar energy collection megastructures around stars. interactive simulation with realistic orbital mechanics and energy collection visualization.',
-      links: [
-        { text: 'view_source →', url: 'https://github.com/chinmay-sawant/dyson_swarms' },
-        { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/Dyson_Swarms/' }
-      ]
-    }
-  ]
+  ],
 };
