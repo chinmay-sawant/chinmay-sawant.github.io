@@ -34,10 +34,14 @@ const Header = ({ view, setView }) => {
       </nav>
 
       <div className="hero">
-        <p className="hero-eyebrow">backend engineer · open source maintainer</p>
+        <p className="hero-eyebrow">polyglot systems engineer · open source maintainer</p>
         <h1 className="hero-name">Chinmay Sawant</h1>
         <p className="hero-tagline">
-          Maintainer of{' '}
+          6.4 years across <span className="hero-accent">Java</span>,{' '}
+          <span className="hero-accent">Python</span>, and{' '}
+          <span className="hero-accent">Go</span> in healthcare &amp; edtech.
+          Over the last 2 years working as a Golang developer at CitiusTech -
+          building microservices, optimizing{' '}
           <a
             href="https://github.com/chinmay-sawant/gopdfsuit"
             target="_blank"
@@ -46,8 +50,25 @@ const Header = ({ view, setView }) => {
           >
             GoPDFSuit
           </a>{' '}
-          with 575+ ⭐ on GitHub. Building scalable systems with{' '}
-          <span className="hero-accent">Go</span>, PostgreSQL, and microservices.
+          (575+ ⭐), maintaining{' '}
+          <a
+            href="https://github.com/chinmay-sawant/deslop"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-accent hero-link"
+          >
+            deslop
+          </a>{' '}
+          (23 ⭐), and currently building{' '}
+          <a
+            href="https://github.com/chinmay-sawant/SlopGuard"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-accent hero-link"
+          >
+            SlopGuard
+          </a>
+          .
         </p>
         <p className="hero-location">Mumbai, India</p>
 
@@ -69,6 +90,14 @@ const Header = ({ view, setView }) => {
             className="external-link"
           >
             linkedin
+            <ExternalIcon />
+          </a>
+          <span className="hero-links-sep" aria-hidden="true">·</span>
+          <a
+            href="mailto:sawantchinmay040@gmail.com"
+            className="external-link"
+          >
+            email
             <ExternalIcon />
           </a>
         </div>

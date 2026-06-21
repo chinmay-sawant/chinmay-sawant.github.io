@@ -10,15 +10,52 @@ const About = () => {
       </div>
       <div className="section-body">
         <p>
-          Software engineer focused on backend systems - primarily Go and Java -
-          with experience across edtech and healthcare. I care about clean
-          architecture, reliable APIs, and systems that scale without drama.
+          Polyglot systems engineer with 6.4 years of experience across
+          healthcare and edtech. My foundation is in Java and Python - Spring
+          Boot services, JasperReports reporting, bulk PDF generation, and 40+
+          automation utilities that cut manual work from days to minutes. Over
+          the last 2 years working as a Golang developer at CitiusTech - 40+
+          AWS Lambda microservices with gRPC and GraphQL, plus open source
+          projects
+          like{' '}
+          <a
+            href="https://github.com/chinmay-sawant/gopdfsuit"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="about-link"
+          >
+            GoPDFSuit
+          </a>{' '}
+          (575+ ⭐),{' '}
+          <a
+            href="https://github.com/chinmay-sawant/deslop"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="about-link"
+          >
+            deslop
+          </a>{' '}
+          (23 ⭐), and currently building{' '}
+          <a
+            href="https://github.com/chinmay-sawant/SlopGuard"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="about-link"
+          >
+            SlopGuard
+          </a>
+          .
         </p>
         <p>
-          Currently building microservices with Go (Gin, GORM, gqlgen), Python,
-          and cloud-native tooling at a healthcare company in Mumbai. Also
-          experimenting with devtools - VS Code extensions, Chrome extensions,
-          and open source libraries that make developers&apos; lives easier.
+          I use AI-assisted development (Copilot, Windsurf, Codex, Opencode, Cursor) to ship faster and
+          pick up new stacks quickly - which is how I&apos;ve moved from
+          Java/Python backends into Go microservices and now Rust for static
+          analysis tooling.
+        </p>
+        <p>
+          Beyond my day-to-day project work, I like to explore other
+          technologies and stacks - VS Code extensions, Chrome extensions, and
+          side projects in languages I haven&apos;t used at work yet.
         </p>
       </div>
     </section>

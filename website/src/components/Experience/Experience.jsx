@@ -18,7 +18,15 @@ const Experience = () => {
             <div className="experience-content">
               <h3 className="experience-role">{exp.role}</h3>
               <p className="experience-company">{exp.company}</p>
-              <p className="experience-description">{exp.description}</p>
+              {exp.highlights ? (
+                <ul className="experience-highlights">
+                  {exp.highlights.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="experience-description">{exp.description}</p>
+              )}
             </div>
           </article>
         ))}

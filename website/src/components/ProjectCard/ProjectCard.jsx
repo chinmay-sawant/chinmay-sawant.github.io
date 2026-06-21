@@ -27,7 +27,10 @@ const ProjectCard = ({ project }) => {
   return (
     <article className="project-card">
       <div className="project-card-header">
-        <h3 className="project-card-title">{project.title}</h3>
+        <h3 className="project-card-title">
+          {project.title}
+          {project.active && <span className="project-active-badge">active</span>}
+        </h3>
         {project.stars && stars && stars !== 'N/A' && (
           <a
             href={project.links[0]?.url}

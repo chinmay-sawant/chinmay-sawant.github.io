@@ -4,19 +4,24 @@ import './Projects.css';
 
 const categories = [
   {
+    key: 'rust',
+    title: 'Rust',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg',
+  },
+  {
     key: 'go',
     title: 'Go',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
   },
   {
-    key: 'java',
-    title: 'Java',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
-  },
-  {
     key: 'python',
     title: 'Python',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+  },
+  {
+    key: 'java',
+    title: 'Java',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
   },
   {
     key: 'react',
@@ -32,11 +37,6 @@ const categories = [
     key: 'chrome',
     title: 'Chrome',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg',
-  },
-  {
-    key: 'vibe',
-    title: 'Experiments',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
   },
 ];
 
