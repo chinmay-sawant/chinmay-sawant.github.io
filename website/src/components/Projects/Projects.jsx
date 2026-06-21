@@ -6,7 +6,7 @@ const categories = [
   {
     key: 'rust',
     title: 'Rust',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg',
   },
   {
     key: 'go',

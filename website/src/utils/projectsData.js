@@ -30,6 +30,7 @@ export const projectsdata = {
         { text: 'live_demo →', url: 'https://chinmay-sawant.github.io/gopdfsuit/' },
       ],
       stars: 'chinmay-sawant/gopdfsuit',
+      active: true,
     },
     {
       title: 'gomindmapper',

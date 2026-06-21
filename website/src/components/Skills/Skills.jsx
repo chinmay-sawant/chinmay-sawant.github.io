@@ -21,7 +21,16 @@ const Skills = () => {
                 if (!skill) return null;
                 return (
                   <span key={name} className="skill-tag">
-                    <img src={skill.icon} className="skill-icon" alt="" />
+                    {skill.icon && (
+                      <img
+                        src={skill.icon}
+                        className="skill-icon"
+                        alt=""
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    )}
                     {skill.name}
                   </span>
                 );

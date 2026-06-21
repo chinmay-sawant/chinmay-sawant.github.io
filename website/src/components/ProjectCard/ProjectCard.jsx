@@ -1,4 +1,5 @@
 import { useGitHubStars } from '../../hooks/useGitHubStars';
+import { getGitHubRepo } from '../../utils/github';
 import './ProjectCard.css';
 
 const formatLinkLabel = (text) => {
@@ -21,8 +22,10 @@ const formatLinkLabel = (text) => {
 };
 
 const ProjectCard = ({ project }) => {
-  const stars = useGitHubStars(project.stars);
+  const repo = getGitHubRepo(project);
+  const { stars, loading } = useGitHubStars(repo);
   const chromeRating = project.chromeRating ?? project.chromerating;
+  const sourceUrl = project.links?.find((link) => link.url?.includes('github.com'))?.url;
 
   return (
     <article className="project-card">
@@ -31,9 +34,9 @@ const ProjectCard = ({ project }) => {
           {project.title}
           {project.active && <span className="project-active-badge">active</span>}
         </h3>
-        {project.stars && stars && stars !== 'N/A' && (
+        {repo && !loading && stars > 0 && (
           <a
-            href={project.links[0]?.url}
+            href={sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="project-stars"

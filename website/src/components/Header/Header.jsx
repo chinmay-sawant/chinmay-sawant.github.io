@@ -1,3 +1,4 @@
+import GitHubRepoLink from '../GitHubRepoLink/GitHubRepoLink';
 import './Header.css';
 
 const ExternalIcon = () => (
@@ -40,26 +41,24 @@ const Header = ({ view, setView }) => {
           6.4 years across <span className="hero-accent">Java</span>,{' '}
           <span className="hero-accent">Python</span>, and{' '}
           <span className="hero-accent">Go</span> in healthcare &amp; edtech.
-          Over the last 2 years working as a Golang developer at CitiusTech -
+          Over the last 2 years working as a Golang developer at CitiusTech —
           building microservices, optimizing{' '}
-          <a
+          <GitHubRepoLink
+            repo="chinmay-sawant/gopdfsuit"
             href="https://github.com/chinmay-sawant/gopdfsuit"
-            target="_blank"
-            rel="noopener noreferrer"
             className="hero-accent hero-link"
           >
             GoPDFSuit
-          </a>{' '}
-          (575+ ⭐), maintaining{' '}
-          <a
+          </GitHubRepoLink>
+          , maintaining{' '}
+          <GitHubRepoLink
+            repo="chinmay-sawant/deslop"
             href="https://github.com/chinmay-sawant/deslop"
-            target="_blank"
-            rel="noopener noreferrer"
             className="hero-accent hero-link"
           >
             deslop
-          </a>{' '}
-          (23 ⭐), and currently building{' '}
+          </GitHubRepoLink>
+          , and currently building{' '}
           <a
             href="https://github.com/chinmay-sawant/SlopGuard"
             target="_blank"
