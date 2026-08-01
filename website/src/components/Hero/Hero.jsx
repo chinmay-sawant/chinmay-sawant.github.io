@@ -56,13 +56,6 @@ const Hero = () => {
           LinkedIn
           <ExternalIcon />
         </a>
-        <span className="hero-links-sep" aria-hidden="true">
-          /
-        </span>
-        <a href="mailto:sawantchinmay040@gmail.com" className="external-link">
-          Email
-          <ExternalIcon />
-        </a>
       </div>
     </section>
   );

@@ -5,48 +5,82 @@
 }
 
 .skills-more {
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .skills-more-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 0;
-  border: none;
-  background: none;
-  font-family: var(--font-mono);
-  font-size: 12px;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  font-family: var(--font-sans);
+  font-size: 13px;
   font-weight: 500;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   cursor: pointer;
-  transition: color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
 }
 
 .skills-more-toggle:hover {
-  color: var(--text-secondary);
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--accent-muted);
+}
+
+.skills-more-toggle.is-open {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--accent-muted);
 }
 
 .skills-more-toggle:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 4px;
-  border-radius: 4px;
+  outline-offset: 3px;
+}
+
+.skills-more-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--accent);
+  opacity: 0.95;
+}
+
+.skills-more-label {
+  letter-spacing: 0.01em;
 }
 
 .skills-more-count {
+  font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-tertiary);
-  padding: 1px 6px;
-  border: 1px solid var(--border);
+  font-weight: 500;
+  color: var(--text);
+  padding: 2px 8px;
+  border: 1px solid var(--border-subtle);
   border-radius: 999px;
   background: var(--bg-subtle);
+  min-width: 1.75rem;
+  text-align: center;
+}
+
+.skills-more-toggle:hover .skills-more-count,
+.skills-more-toggle.is-open .skills-more-count {
+  border-color: transparent;
+  background: var(--bg-elevated);
 }
 
 .skills-more-chevron {
   display: inline-block;
-  font-size: 10px;
+  font-size: 11px;
+  margin-left: 2px;
   transition: transform 0.2s var(--ease);
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
 .skills-more-chevron.is-open {
@@ -55,6 +89,10 @@
 
 .skills-also {
   margin-top: 18px;
+  padding: 18px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elevated);
 }
 
 .skills-also[hidden] {
@@ -108,6 +146,10 @@
 
 .skills-primary .skill-tag:hover {
   color: var(--text);
+}
+
+.skills-also .skill-tag {
+  background: var(--bg-subtle);
 }
 
 .skill-icon {
