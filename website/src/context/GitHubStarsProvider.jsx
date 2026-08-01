@@ -1,20 +1,31 @@
 import { useEffect, useState } from 'react';
-import { fetchAllGitHubStars } from '../utils/github';
+import { fetchGitHubRepos, fetchAllGitHubStars } from '../utils/github';
 import { GitHubStarsContext } from './githubStarsContext';
 
 const GitHubStarsProvider = ({ children }) => {
   const [starsMap, setStarsMap] = useState({});
+  const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchAllGitHubStars().then((map) => {
-      setStarsMap(map);
-      setLoading(false);
-    });
+    let cancelled = false;
+
+    Promise.all([fetchGitHubRepos(), fetchAllGitHubStars()]).then(
+      ([repoList, map]) => {
+        if (cancelled) return;
+        setRepos(repoList);
+        setStarsMap(map);
+        setLoading(false);
+      },
+    );
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (
-    <GitHubStarsContext.Provider value={{ starsMap, loading }}>
+    <GitHubStarsContext.Provider value={{ starsMap, repos, loading }}>
       {children}
     </GitHubStarsContext.Provider>
   );

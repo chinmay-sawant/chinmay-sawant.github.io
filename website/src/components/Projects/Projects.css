@@ -1,35 +1,143 @@
-.projects-category + .projects-category {
-  margin-top: 40px;
+.projects-featured {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
 }
 
-.projects-category-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 12px;
+.projects-more {
+  margin-bottom: 56px;
+}
+
+.projects-subhead {
+  font-family: var(--font-sans);
+  font-size: 13px;
   font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--text-tertiary);
-  text-transform: lowercase;
-  letter-spacing: 0.04em;
   margin-bottom: 16px;
-}
-
-.projects-category-icon {
-  width: 14px;
-  height: 14px;
-  opacity: 0.7;
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 14px;
 }
 
-@media (max-width: 640px) {
-  .projects-grid {
+.projects-recent-header {
+  margin-bottom: 16px;
+}
+
+.projects-recent-header .projects-subhead {
+  margin-bottom: 0;
+}
+
+.projects-github-link {
+  text-decoration: none;
+  color: var(--text-tertiary);
+  transition: color 0.15s ease;
+}
+
+.projects-github-link:hover {
+  color: var(--accent);
+}
+
+.recent-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.recent-repo {
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  transition: border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recent-repo:hover {
+  border-color: var(--border-subtle);
+}
+
+.recent-repo-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.recent-repo-name {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.recent-repo-name:hover {
+  color: var(--accent);
+}
+
+.recent-repo-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.recent-repo-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.recent-repo-lang {
+  color: var(--text-tertiary);
+}
+
+.recent-repo-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.recent-repo-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.recent-repo-home {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.recent-repo-home:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .projects-featured,
+  .projects-grid,
+  .recent-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
   }
 }

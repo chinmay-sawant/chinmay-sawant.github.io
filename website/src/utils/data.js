@@ -49,6 +49,7 @@ export const skillsData = [
   { name: 'Agile/Scrum', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg' },
 ];
 
+/** Full skill catalog (kept for reference / expanded views). */
 export const skillGroups = [
   {
     label: 'languages',
@@ -73,6 +74,30 @@ export const skillGroups = [
   {
     label: 'tools & ai',
     skills: ['Git', 'GitHub', 'Bitbucket', 'JIRA', 'Confluence', 'GitHub Copilot', 'Windsurf', 'Cursor', 'Codex', 'Opencode', 'Antigravity', 'Agile/Scrum'],
+  },
+];
+
+/** Curated stack shown on the portfolio (signal over noise). */
+export const curatedSkillGroups = [
+  {
+    label: 'languages',
+    skills: ['Go', 'Rust', 'Python', 'Java', 'TypeScript'],
+  },
+  {
+    label: 'systems',
+    skills: ['gRPC', 'GraphQL', 'Spring Boot', 'REST APIs', 'Microservices'],
+  },
+  {
+    label: 'data',
+    skills: ['PostgreSQL', 'Redis', 'Kafka', 'MongoDB'],
+  },
+  {
+    label: 'cloud',
+    skills: ['AWS Lambda', 'AWS CDK', 'Docker', 'CI/CD'],
+  },
+  {
+    label: 'tooling',
+    skills: ['Tree-sitter', 'Static Analysis', 'React', 'Git'],
   },
 ];
 
@@ -104,10 +129,10 @@ export const experienceData = [
 ];
 
 export const interestsData = [
-  { name: 'book reading', icon: '📚' },
-  { name: 'cycling', icon: '🚴' },
-  { name: 'music', icon: '🎵' },
-  { name: 'exploring tech', icon: '💻' },
-  { name: 'chess', icon: '♟️' },
-  { name: 'space enthusiast', icon: '🚀' },
+  { name: 'reading' },
+  { name: 'cycling' },
+  { name: 'music' },
+  { name: 'exploring tech' },
+  { name: 'chess' },
+  { name: 'space' },
 ];

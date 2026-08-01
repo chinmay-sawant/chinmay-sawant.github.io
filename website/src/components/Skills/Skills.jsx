@@ -1,18 +1,17 @@
-import { skillsData, skillGroups } from '../../utils/data';
+import { skillsData, curatedSkillGroups } from '../../utils/data';
 import './Skills.css';
 
 const skillMap = Object.fromEntries(skillsData.map((s) => [s.name, s]));
 
 const Skills = () => {
   return (
-    <section className="section skills-section" id="stack">
-      <div className="section-label">
-        <span className="section-number">03</span>
+    <section className="section skills-section reveal" id="stack">
+      <div className="section-header">
         <h2 className="section-title">Stack</h2>
-        <span className="section-divider" />
+        <span className="section-aside">What I use most</span>
       </div>
       <div className="skills-groups">
-        {skillGroups.map((group) => (
+        {curatedSkillGroups.map((group) => (
           <div key={group.label} className="skill-group">
             <h3 className="skill-group-label">{group.label}</h3>
             <div className="skills-grid">

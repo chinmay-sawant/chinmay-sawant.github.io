@@ -4,14 +4,13 @@ import './Experience.css';
 const Experience = () => {
   return (
     <section className="section experience-section" id="experience">
-      <div className="section-label">
-        <span className="section-number">02</span>
+      <div className="section-header">
         <h2 className="section-title">Experience</h2>
-        <span className="section-divider" />
+        <span className="section-aside">6+ years</span>
       </div>
       <div className="experience-list">
         {experienceData.map((exp, index) => (
-          <article key={index} className="experience-item">
+          <article key={index} className="experience-item reveal">
             <div className="experience-meta">
               <time className="experience-duration">{exp.duration}</time>
             </div>

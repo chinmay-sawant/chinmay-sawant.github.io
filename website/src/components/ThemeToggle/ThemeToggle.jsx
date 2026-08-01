@@ -23,6 +23,7 @@ const MoonIcon = () => (
 const ThemeToggle = ({ theme, toggleTheme }) => {
   return (
     <button
+      type="button"
       className="theme-toggle"
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}

@@ -19,7 +19,7 @@ const GitHubRepoLink = ({
     >
       {children}
       {showStars && !loading && stars > 0 && (
-        <span className="repo-stars"> ({stars} ⭐)</span>
+        <span className="repo-stars"> ({stars})</span>
       )}
     </a>
   );
