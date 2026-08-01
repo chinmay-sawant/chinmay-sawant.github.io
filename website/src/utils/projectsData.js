@@ -3,26 +3,34 @@ export const projectsdata = {
     {
       title: 'slopguard',
       description:
-        'Enhanced rewrite of deslop with improved architecture and performance heuristics. Language-agnostic static analysis built in Rust using Tree-sitter - supports Go, Python, and Rust codebases. Active development.',
+        'Enhanced rewrite of deslop with improved architecture and performance heuristics. Language-agnostic static analysis built in Rust using Tree-sitter - supports Go, Python, and Rust codebases.',
       links: [
         { text: 'source', url: 'https://github.com/chinmay-sawant/SlopGuard' },
       ],
-      active: true,
-      featured: true,
     },
     {
       title: 'deslop',
       description:
-        'Language-agnostic, ultra-fast best practice analyzer built in Rust with Tree-sitter. Heuristics for code quality, security, and performance across Go, Python, and Rust codebases.',
+        'Language-agnostic, ultra-fast best practice analyzer built in Rust with Tree-sitter. Heuristics for code quality, security, and performance across Go, Python, and Rust codebases. Predecessor to goslop.',
       links: [
         { text: 'source', url: 'https://github.com/chinmay-sawant/deslop' },
         { text: 'demo', url: 'https://chinmay-sawant.github.io/deslop/' },
       ],
       stars: 'chinmay-sawant/deslop',
-      featured: true,
     },
   ],
   go: [
+    {
+      title: 'goslop',
+      description:
+        'Modern, fast static analyzer for the AI coding era — detects low-context AI-generated code patterns and performance issues. Active development in Go; successor focus after deslop.',
+      links: [
+        { text: 'source', url: 'https://github.com/chinmay-sawant/goslop' },
+      ],
+      stars: 'chinmay-sawant/goslop',
+      active: true,
+      featured: true,
+    },
     {
       title: 'gopdfsuit',
       description:
@@ -44,7 +52,6 @@ export const projectsdata = {
         { text: 'demo', url: 'https://chinmay-sawant.github.io/gomindmapper/' },
       ],
       stars: 'chinmay-sawant/gomindmapper',
-      featured: true,
     },
     {
       title: 'gosourcemap',

@@ -1,10 +1,11 @@
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import {
   getFeaturedProjects,
   getOtherProjects,
-  getCuratedRepoKeys,
 } from '../../utils/projectsData';
+import { getGitHubRepo } from '../../utils/github';
+import { GitHubStarsContext } from '../../context/githubStarsContext';
 import { useRecentGitHubRepos } from '../../hooks/useGitHubRepos';
 import './Projects.css';
 
@@ -68,11 +69,22 @@ const RecentRepoCard = ({ repo }) => (
   </article>
 );
 
+const starCountFor = (project, starsMap) => {
+  const repo = getGitHubRepo(project);
+  if (!repo) return 0;
+  return starsMap[repo.toLowerCase()] ?? 0;
+};
+
 const Projects = () => {
+  const { starsMap } = useContext(GitHubStarsContext);
   const featured = useMemo(() => getFeaturedProjects(), []);
-  const others = useMemo(() => getOtherProjects(), []);
-  const knownKeys = useMemo(() => getCuratedRepoKeys(), []);
-  const { recent, loading: recentLoading } = useRecentGitHubRepos(knownKeys, 8);
+  const others = useMemo(() => {
+    const list = getOtherProjects();
+    return [...list].sort(
+      (a, b) => starCountFor(b, starsMap) - starCountFor(a, starsMap),
+    );
+  }, [starsMap]);
+  const { recent, loading: recentLoading } = useRecentGitHubRepos([], 8);
 
   return (
     <section className="section projects-section" id="work">

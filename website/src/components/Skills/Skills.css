@@ -1,3 +1,66 @@
+.skills-primary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skills-more {
+  margin-top: 20px;
+}
+
+.skills-more-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.skills-more-toggle:hover {
+  color: var(--text-secondary);
+}
+
+.skills-more-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.skills-more-count {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  padding: 1px 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-subtle);
+}
+
+.skills-more-chevron {
+  display: inline-block;
+  font-size: 10px;
+  transition: transform 0.2s var(--ease);
+  opacity: 0.7;
+}
+
+.skills-more-chevron.is-open {
+  transform: rotate(180deg);
+}
+
+.skills-also {
+  margin-top: 18px;
+}
+
+.skills-also[hidden] {
+  display: none;
+}
+
 .skills-groups {
   display: flex;
   flex-direction: column;
@@ -35,6 +98,15 @@
 
 .skill-tag:hover {
   border-color: var(--border-subtle);
+  color: var(--text);
+}
+
+.skills-primary .skill-tag {
+  border-color: var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.skills-primary .skill-tag:hover {
   color: var(--text);
 }
 

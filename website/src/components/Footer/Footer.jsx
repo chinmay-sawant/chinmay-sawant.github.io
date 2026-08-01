@@ -1,4 +1,3 @@
-import { interestsData } from '../../utils/data';
 import './Footer.css';
 
 const Footer = () => {
@@ -25,11 +24,6 @@ const Footer = () => {
             Dev.to
           </a>
         </div>
-        {interestsData?.length > 0 && (
-          <p className="footer-interests">
-            Also into {interestsData.map((i) => i.name).join(' · ')}
-          </p>
-        )}
       </div>
       <p className="footer-copy">© {new Date().getFullYear()} Chinmay Sawant</p>
     </footer>

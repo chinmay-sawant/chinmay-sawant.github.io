@@ -8,7 +8,9 @@ import Experience from './components/Experience/Experience';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
 import ArticleList from './components/Articles/ArticleList';
+import Interests from './components/Interests/Interests';
 import Footer from './components/Footer/Footer';
+import SectionNav from './components/Sidebar/SectionNav';
 import './App.css';
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
           Skip to content
         </a>
         <Header theme={theme} toggleTheme={toggleTheme} />
+        <SectionNav />
         <div className="container">
           <main id="main" className="main">
             <Hero />
@@ -30,6 +33,7 @@ function App() {
             <About />
             <Skills />
             <ArticleList />
+            <Interests />
           </main>
           <Footer />
         </div>

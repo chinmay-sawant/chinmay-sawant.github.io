@@ -40,13 +40,13 @@ const normalizeRepo = (repo) => ({
   updatedAt: repo.updated_at,
 });
 
-/** Fetch user repos (sorted by last update). Caches result for stars + recent lists. */
+/** Fetch user repos. Caches result for stars + recent lists. */
 export const fetchGitHubRepos = async () => {
   if (reposCache) return reposCache;
 
   if (!reposPromise) {
     reposPromise = fetch(
-      `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`,
+      `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed&direction=desc`,
       { headers: { Accept: 'application/vnd.github+json' } },
     )
       .then(async (response) => {
@@ -54,7 +54,14 @@ export const fetchGitHubRepos = async () => {
           throw new Error(`GitHub API responded with ${response.status}`);
         }
         const data = await response.json();
-        reposCache = data.map(normalizeRepo);
+        // Prefer last push for “recent”; fall back to updatedAt.
+        reposCache = data
+          .map(normalizeRepo)
+          .sort(
+            (a, b) =>
+              new Date(b.pushedAt || b.updatedAt || 0) -
+              new Date(a.pushedAt || a.updatedAt || 0),
+          );
         return reposCache;
       })
       .catch((error) => {
@@ -94,43 +101,27 @@ const EXCLUDED_REPO_NAMES = new Set([
   'zerotoone',
 ]);
 
-/** Loose name aliases so curated rows match GitHub renames. */
-const REPO_ALIASES = {
-  youtubecommentstracker: 'youtubecommentsviewer',
-  youtubecommentsviewer: 'youtubecommentstracker',
-  motionsaver: 'motionsaver',
-};
-
 /**
- * Recent non-fork, non-archived repos not already in the curated project set.
- * @param {string[]} knownRepoKeys lowercase owner/name keys already shown
+ * Most recently pushed public repos (true GitHub activity feed).
+ * Drops forks, archived, and known junk — does not hide curated projects.
+ * @param {object[]} repos
+ * @param {string[]} [_knownRepoKeys] unused; kept for call-site compatibility
  * @param {number} limit
  */
-export const filterRecentRepos = (repos, knownRepoKeys = [], limit = 8) => {
-  const known = new Set(knownRepoKeys.map((k) => k.toLowerCase()));
-  const knownNames = new Set(
-    [...known].map((k) => {
-      const name = k.split('/')[1] || k;
-      return name.toLowerCase();
-    }),
-  );
-  // Expand aliases both ways
-  for (const name of [...knownNames]) {
-    if (REPO_ALIASES[name]) knownNames.add(REPO_ALIASES[name]);
-  }
-
-  return repos
+export const filterRecentRepos = (repos, _knownRepoKeys = [], limit = 8) => {
+  void _knownRepoKeys;
+  return [...repos]
     .filter((repo) => {
       if (repo.fork || repo.archived) return false;
       const name = repo.name.toLowerCase();
       if (EXCLUDED_REPO_NAMES.has(name)) return false;
-      if (known.has(repo.fullName.toLowerCase())) return false;
-      if (knownNames.has(name)) return false;
-      if (!repo.description?.trim() || repo.description.trim().length < 12) {
-        return false;
-      }
       return true;
     })
+    .sort(
+      (a, b) =>
+        new Date(b.pushedAt || b.updatedAt || 0) -
+        new Date(a.pushedAt || a.updatedAt || 0),
+    )
     .slice(0, limit);
 };
 
