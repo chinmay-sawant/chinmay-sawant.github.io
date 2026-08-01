@@ -10,8 +10,8 @@
   --accent: #00add8;
   --accent-muted: rgba(0, 173, 216, 0.12);
   --accent-hover: #33bddf;
-  --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --radius: 8px;
   --radius-lg: 12px;
   --site-max: 920px;

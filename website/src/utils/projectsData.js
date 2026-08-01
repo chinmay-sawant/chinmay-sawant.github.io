@@ -23,7 +23,7 @@ export const projectsdata = {
     {
       title: 'goslop',
       description:
-        'Modern, fast static analyzer for the AI coding era — detects low-context AI-generated code patterns and performance issues. Active development in Go; successor focus after deslop.',
+        'Modern, fast static analyzer for the AI coding era. Detects low-context AI-generated code patterns and performance issues. Active development in Go; successor focus after deslop.',
       links: [
         { text: 'source', url: 'https://github.com/chinmay-sawant/goslop' },
       ],
@@ -166,7 +166,7 @@ export const projectsdata = {
     {
       title: 'aura tube',
       description:
-        'Chrome extension to customize YouTube grid layout - adjustable columns (1–20), spacing presets, and persistent settings.',
+        'Chrome extension to customize YouTube grid layout - adjustable columns (1-20), spacing presets, and persistent settings.',
       links: [
         { text: 'source', url: 'https://github.com/chinmay-sawant/auratubeextension' },
         { text: 'demo', url: 'https://chinmay-sawant.github.io/AuraTubeExtension/' },

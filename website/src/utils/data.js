@@ -100,8 +100,8 @@ export const experienceData = [
     duration: 'Aug 2024 - Present',
     highlights: [
       'Shipped 40+ AWS Lambda microservices (gRPC + GraphQL/gqlgen) on the Patient Care Journey core team.',
-      'Cut feature turnaround 30–40% with oneforall — local containerized debugging for Lambda services.',
-      'Projected $2K–$4K/year savings vs third-party APIs by open-sourcing GoPDFSuit (internal PDF engine → OSS).',
+      'Cut feature turnaround 30-40% with oneforall: local containerized debugging for Lambda services.',
+      'Projected $2K-$4K/year savings vs third-party APIs by open-sourcing GoPDFSuit (internal PDF engine to OSS).',
       'Halved time-to-understand legacy codebases with GoMindMapper dependency mapping.',
       'Cut ticket grooming ~40% with an AI knowledge base that turns docs and notes into context-rich Jira briefs.',
       'Cut new-hire ramp-up from 4 weeks to under 2 via structured onboarding and knowledge transfer.',

@@ -3,73 +3,6 @@
   padding-bottom: 8px;
 }
 
-.hero-layout {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.hero-copy {
-  min-width: 0;
-  flex: 1;
-}
-
-.hero-monogram {
-  position: relative;
-  flex-shrink: 0;
-  width: 92px;
-  height: 92px;
-  margin-top: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--bg-elevated);
-  overflow: hidden;
-  transition: border-color 0.2s ease;
-}
-
-.hero-monogram::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      135deg,
-      var(--accent-muted) 0%,
-      transparent 48%
-    );
-  pointer-events: none;
-}
-
-.hero-monogram-mark {
-  position: relative;
-  font-family: var(--font-mono);
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  color: var(--text);
-  line-height: 1;
-  user-select: none;
-}
-
-.hero-monogram-accent {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-muted);
-}
-
-.hero-monogram:hover {
-  border-color: var(--border-subtle);
-}
-
 .hero-eyebrow {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -81,8 +14,8 @@
 
 .hero-name {
   font-size: clamp(2.25rem, 6vw, 3.25rem);
-  font-weight: 700;
-  letter-spacing: -0.035em;
+  font-weight: 600;
+  letter-spacing: -0.03em;
   line-height: 1.05;
   color: var(--text);
   margin-bottom: 20px;
@@ -106,7 +39,7 @@
   flex-wrap: wrap;
   gap: 8px;
   list-style: none;
-  margin: 0 0 32px;
+  margin: 0 0 28px;
   padding: 0;
   max-width: 40rem;
 }
@@ -140,13 +73,6 @@
   outline-offset: 2px;
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 28px;
-}
-
 .hero-links {
   display: flex;
   align-items: center;
@@ -164,16 +90,5 @@
 @media (max-width: 640px) {
   .hero {
     padding-top: 28px;
-  }
-
-  .hero-layout {
-    flex-direction: column-reverse;
-    gap: 24px;
-  }
-
-  .hero-monogram {
-    width: 64px;
-    height: 64px;
-    margin-top: 0;
   }
 }

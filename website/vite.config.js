@@ -21,17 +21,24 @@ export default defineConfig({
   ],
   base: '/',
   root: '.',
+  // HMR watches src/; keep server.fs explicit so edits always invalidate.
+  server: {
+    watch: {
+      usePolling: false,
+    },
+  },
   build: {
     outDir: 'dist',
     emptyOutDir: true,
     sourcemap: false,
     rollupOptions: {
-      input: resolve(__dirname, 'index-vite.html'),
+      // Source entry is index.html → /src/main.jsx (never overwrite that file with build output).
+      input: resolve(__dirname, 'index.html'),
       output: {
         manualChunks: undefined,
         entryFileNames: 'assets/[name]-[hash].js',
         chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
+        assetFileNames: 'assets/[name]-[hash].[ext]',
       },
     },
   },

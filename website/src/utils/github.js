@@ -103,7 +103,7 @@ const EXCLUDED_REPO_NAMES = new Set([
 
 /**
  * Most recently pushed public repos (true GitHub activity feed).
- * Drops forks, archived, and known junk — does not hide curated projects.
+ * Drops forks, archived, and known junk; does not hide curated projects.
  * @param {object[]} repos
  * @param {string[]} [_knownRepoKeys] unused; kept for call-site compatibility
  * @param {number} limit

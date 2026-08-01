@@ -120,7 +120,7 @@
   color: var(--text);
 }
 
-/* Hide on smaller viewports — not enough gutter for Medium-style rail */
+/* Hide on smaller viewports: not enough gutter for Medium-style rail */
 @media (max-width: 1100px) {
   .section-nav {
     display: none;

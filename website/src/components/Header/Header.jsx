@@ -17,7 +17,7 @@ const Header = ({ theme, toggleTheme }) => {
         <a
           href="#top"
           className={`site-logo${activeId === 'top' ? ' is-active' : ''}`}
-          aria-label="Chinmay Sawant — home"
+          aria-label="Chinmay Sawant - home"
           onClick={(e) => handleNavClick(e, 'top')}
         >
           cs
