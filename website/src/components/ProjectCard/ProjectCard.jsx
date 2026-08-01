@@ -2,38 +2,38 @@ import { useGitHubStars } from '../../hooks/useGitHubStars';
 import { getGitHubRepo } from '../../utils/github';
 import './ProjectCard.css';
 
+const StarIcon = () => (
+  <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
+    <path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2-6-4.4h7.6z" />
+  </svg>
+);
+
 const formatLinkLabel = (text) => {
-  const normalized = text.replace(' →', '').trim().toLowerCase();
-
-  if (normalized.includes('view_source') || normalized === 'view source') {
-    return '📂 view_source';
-  }
-  if (normalized.includes('live_demo') || normalized === 'live demo') {
-    return '🚀 live_demo';
-  }
-  if (normalized.includes('vscode')) {
-    return '🧩 vscode marketplace';
-  }
-  if (normalized.includes('chrome_store') || normalized.includes('chrome store')) {
-    return '🌐 chrome_store';
-  }
-
-  return text.replace(' →', '');
+  const normalized = text.replace(/[→_]/g, ' ').trim().toLowerCase();
+  if (normalized.includes('view source') || normalized === 'source') return 'Source';
+  if (normalized.includes('live demo') || normalized === 'demo') return 'Demo';
+  if (normalized.includes('vscode') || normalized.includes('marketplace')) return 'Marketplace';
+  if (normalized.includes('chrome')) return 'Chrome Store';
+  return text.replace(' →', '').trim();
 };
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, variant = 'default' }) => {
   const repo = getGitHubRepo(project);
   const { stars, loading } = useGitHubStars(repo);
   const chromeRating = project.chromeRating ?? project.chromerating;
   const sourceUrl = project.links?.find((link) => link.url?.includes('github.com'))?.url;
+  const isFeatured = variant === 'featured';
 
   return (
-    <article className="project-card">
+    <article className={`project-card reveal ${isFeatured ? 'project-card--featured' : ''}`}>
       <div className="project-card-header">
-        <h3 className="project-card-title">
-          {project.title}
-          {project.active && <span className="project-active-badge">active</span>}
-        </h3>
+        <div className="project-card-title-row">
+          <h3 className="project-card-title">{project.title}</h3>
+          {project.active && <span className="project-badge">Active</span>}
+          {project.category && !isFeatured && (
+            <span className="project-category">{project.category}</span>
+          )}
+        </div>
         {repo && !loading && stars > 0 && (
           <a
             href={sourceUrl}
@@ -42,7 +42,8 @@ const ProjectCard = ({ project }) => {
             className="project-stars"
             aria-label={`${stars} GitHub stars`}
           >
-            ⭐ <span>{stars}</span>
+            <StarIcon />
+            <span>{stars}</span>
           </a>
         )}
       </div>
@@ -74,18 +75,16 @@ const ProjectCard = ({ project }) => {
             rel="noopener noreferrer"
             className="project-link"
           >
-            {link.icon && (
-              <img src={link.icon} alt="" className="project-link-icon" />
-            )}
             {formatLinkLabel(link.text)}
           </a>
         ))}
 
         {chromeRating && (
           <span className="project-rating">
-            ⭐ {chromeRating.rating.toFixed(1)}
+            <StarIcon />
+            {chromeRating.rating.toFixed(1)}
             <span className="project-rating-count">
-              ({chromeRating.reviewcount ?? chromeRating.reviewCount} reviews)
+              ({chromeRating.reviewcount ?? chromeRating.reviewCount})
             </span>
           </span>
         )}

@@ -49,6 +49,23 @@ export const skillsData = [
   { name: 'Agile/Scrum', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg' },
 ];
 
+/** High-signal skills shown first. */
+export const primarySkills = [
+  'Go',
+  'Rust',
+  'Python',
+  'Java',
+  'gRPC',
+  'GraphQL',
+  'Spring Boot',
+  'PostgreSQL',
+  'Redis',
+  'Kafka',
+  'AWS Lambda',
+  'Docker',
+  'Microservices',
+];
+
 export const skillGroups = [
   {
     label: 'languages',
@@ -82,12 +99,12 @@ export const experienceData = [
     role: 'Senior Golang Developer',
     duration: 'Aug 2024 - Present',
     highlights: [
-      'Over the last 2 years as a Golang developer - core team for Patient Care Journey, configuring and deploying 40+ AWS Lambda microservices with gRPC and GraphQL (gqlgen).',
-      'Built oneforall to containerize Lambda services for local debugging, cutting feature turnaround by 30–40%.',
-      'Built GoPDFSuit, an open-source PDF engine originally developed as an internal initiative - projected $2K–$4K/year cost savings vs third-party APIs.',
-      'Built GoMindMapper to reverse-engineer legacy dependencies, reducing time-to-understand unfamiliar codebases by 50%+.',
-      'Developed an AI-powered knowledge base system inspired by Karpathy\'s knowledge management framework. Ingested internal architecture docs, API specs, and meeting notes to auto-generate context-rich Jira tickets and sprint briefs - cutting ticket grooming time by ~40% and reducing ambiguity in sprint deliverables.',
-      'Led onboarding and knowledge transfer, reducing new-hire ramp-up from 4 weeks to under 2 weeks.',
+      'Shipped 40+ AWS Lambda microservices (gRPC + GraphQL/gqlgen) on the Patient Care Journey core team.',
+      'Cut feature turnaround 30-40% with oneforall: local containerized debugging for Lambda services.',
+      'Projected $2K-$4K/year savings vs third-party APIs by open-sourcing GoPDFSuit (internal PDF engine to OSS).',
+      'Halved time-to-understand legacy codebases with GoMindMapper dependency mapping.',
+      'Cut ticket grooming ~40% with an AI knowledge base that turns docs and notes into context-rich Jira briefs.',
+      'Cut new-hire ramp-up from 4 weeks to under 2 via structured onboarding and knowledge transfer.',
     ],
   },
   {
@@ -95,19 +112,19 @@ export const experienceData = [
     role: 'Associate System Analyst',
     duration: 'Feb 2020 - Jul 2024',
     highlights: [
-      '4+ years across Java and Python - reporting services (JasperReports, ReportLab), Spring Boot APIs, and workflow automation.',
-      'Engineered TDOS exam monitoring system with Spring Boot and HTTP/2 client-server push across PAN India.',
-      'Led legacy modernization from Java/Servlet to Spring Boot & Angular, JBoss to WildFly with STQC compliance.',
-      'Built 40+ Python/Java utilities - bulk candidate search cut data retrieval from days to 15 minutes.',
+      '4+ years in Java and Python: reporting (JasperReports, ReportLab), Spring Boot APIs, and workflow automation.',
+      'Built TDOS exam monitoring (Spring Boot + HTTP/2 push) for PAN-India live exams.',
+      'Led Servlet → Spring Boot/Angular and JBoss → WildFly modernization with STQC compliance.',
+      'Cut bulk candidate search from days to 15 minutes with 40+ Python/Java utilities.',
     ],
   },
 ];
 
 export const interestsData = [
-  { name: 'book reading', icon: '📚' },
-  { name: 'cycling', icon: '🚴' },
-  { name: 'music', icon: '🎵' },
-  { name: 'exploring tech', icon: '💻' },
-  { name: 'chess', icon: '♟️' },
-  { name: 'space enthusiast', icon: '🚀' },
+  { name: 'reading', emoji: '📚' },
+  { name: 'cycling', emoji: '🚴' },
+  { name: 'music', emoji: '🎵' },
+  { name: 'exploring tech', emoji: '🔭' },
+  { name: 'chess', emoji: '♟️' },
+  { name: 'space', emoji: '🚀' },
 ];

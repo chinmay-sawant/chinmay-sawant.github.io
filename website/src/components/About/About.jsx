@@ -1,59 +1,27 @@
-import GitHubRepoLink from '../GitHubRepoLink/GitHubRepoLink';
 import './About.css';
 
 const About = () => {
   return (
-    <section className="section about-section" id="about">
-      <div className="section-label">
-        <span className="section-number">01</span>
+    <section className="section about-section reveal" id="about">
+      <div className="section-header">
         <h2 className="section-title">About</h2>
-        <span className="section-divider" />
       </div>
       <div className="section-body">
         <p>
-          Polyglot systems engineer with 6.4 years of experience across
-          healthcare and edtech. My foundation is in Java and Python - Spring
-          Boot services, JasperReports reporting, bulk PDF generation, and 40+
-          automation utilities that cut manual work from days to minutes. Over
-          the last 2 years working as a Golang developer at CitiusTech - 40+
-          AWS Lambda microservices with gRPC and GraphQL, plus open source
-          projects like{' '}
-          <GitHubRepoLink
-            repo="chinmay-sawant/gopdfsuit"
-            href="https://github.com/chinmay-sawant/gopdfsuit"
-            className="about-link"
-          >
-            GoPDFSuit
-          </GitHubRepoLink>
-          ,{' '}
-          <GitHubRepoLink
-            repo="chinmay-sawant/deslop"
-            href="https://github.com/chinmay-sawant/deslop"
-            className="about-link"
-          >
-            deslop
-          </GitHubRepoLink>
-          , and currently building{' '}
-          <a
-            href="https://github.com/chinmay-sawant/SlopGuard"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="about-link"
-          >
-            SlopGuard
-          </a>
-          .
+          I ship backend systems end to end: APIs, data pipelines, and the
+          tools teams need to debug and understand them. At CitiusTech I work
+          on patient-care microservices (AWS Lambda, gRPC, GraphQL); earlier at
+          NSEIT I modernized exam platforms and built reporting and automation
+          in Java and Python.
         </p>
         <p>
-          I use AI-assisted development (Copilot, Windsurf, Codex, Opencode, Cursor) to ship faster and
-          pick up new stacks quickly - which is how I&apos;ve moved from
-          Java/Python backends into Go microservices and now Rust for static
-          analysis tooling.
+          Outside product work I maintain open-source PDF and static-analysis
+          tools, and use AI-assisted workflows (Copilot, Cursor, Codex) to move
+          faster across stacks, including Rust for language tooling.
         </p>
         <p>
-          Beyond my day-to-day project work, I like to explore other
-          technologies and stacks - VS Code extensions, Chrome extensions, and
-          side projects in languages I haven&apos;t used at work yet.
+          Side projects range from VS Code and Chrome extensions to experiments
+          in languages I do not use day to day.
         </p>
       </div>
     </section>

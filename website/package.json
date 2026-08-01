@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run lint && vite build && cp dist/index-vite.html ../index.html && cp dist/index-vite.html ./index.html && rm -rf ../assets && cp -r dist/assets ../ && rm -rf assets && cp -r dist/assets ./ && rm -rf dist",
+    "build": "npm run lint && vite build && cp dist/index.html ../index.html && rm -rf ../assets && cp -r dist/assets ../ && rm -rf assets && cp -r dist/assets ./ && rm -rf dist",
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "npm run build && node deploy.js"

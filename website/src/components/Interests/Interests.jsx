@@ -2,18 +2,22 @@ import { interestsData } from '../../utils/data';
 import './Interests.css';
 
 const Interests = () => {
+  if (!interestsData?.length) return null;
+
   return (
-    <section className="section interests-section" id="interests">
-      <div className="section-label">
-        <span className="section-number">05</span>
-        <h2 className="section-title">Interests</h2>
-        <span className="section-divider" />
+    <section className="section interests-section reveal" id="hobbies">
+      <div className="section-header">
+        <h2 className="section-title">Hobbies</h2>
       </div>
       <ul className="interests-list">
-        {interestsData.map((interest, index) => (
-          <li key={index} className="interest-item">
-            <span className="interest-icon" aria-hidden="true">{interest.icon}</span>
-            {interest.name}
+        {interestsData.map((item) => (
+          <li key={item.name} className="interest-item">
+            {item.emoji && (
+              <span className="interest-emoji" aria-hidden="true">
+                {item.emoji}
+              </span>
+            )}
+            {item.name}
           </li>
         ))}
       </ul>

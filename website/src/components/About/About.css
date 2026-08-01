@@ -1,10 +1,3 @@
-.about-link {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.15s ease;
-}
-
-.about-link:hover {
-  border-bottom-color: var(--accent);
+.about-section .section-body {
+  max-width: 58ch;
 }

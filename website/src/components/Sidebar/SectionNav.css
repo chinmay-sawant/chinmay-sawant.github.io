@@ -1,0 +1,135 @@
+/* Medium-style right-side section navigator:
+   collapsed = thin dashes; hover/focus = section names. */
+
+.section-nav {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 40;
+  transform: translateY(-50%);
+  padding: 16px 20px 16px 12px;
+}
+
+.section-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.section-nav-item {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.section-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--text-tertiary);
+  outline: none;
+  /* Expand hit area */
+  padding: 4px 0;
+}
+
+.section-nav-link::before {
+  content: '';
+  position: absolute;
+  inset: -4px -12px -4px -8px;
+}
+
+.section-nav-dash {
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  border-radius: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+  transition:
+    width 0.22s var(--ease),
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+  opacity: 0.4;
+}
+
+.section-nav-link.is-active {
+  color: var(--text);
+}
+
+.section-nav-link.is-active .section-nav-dash {
+  width: 28px;
+  height: 2px;
+  opacity: 1;
+  background: var(--text);
+}
+
+.section-nav-link:hover .section-nav-dash,
+.section-nav-link:focus-visible .section-nav-dash {
+  opacity: 0.8;
+  width: 22px;
+}
+
+.section-nav-link.is-active:hover .section-nav-dash,
+.section-nav-link.is-active:focus-visible .section-nav-dash {
+  width: 28px;
+  opacity: 1;
+}
+
+/* Labels sit to the left of the dash; collapse to zero width until hover */
+.section-nav-label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(4px);
+  margin-right: 0;
+  transition:
+    max-width 0.25s var(--ease),
+    opacity 0.2s var(--ease),
+    transform 0.22s var(--ease),
+    margin 0.22s var(--ease),
+    color 0.15s ease;
+}
+
+.section-nav.is-expanded .section-nav-label {
+  max-width: 120px;
+  opacity: 1;
+  transform: translateX(0);
+  margin-right: 12px;
+}
+
+.section-nav-link.is-active .section-nav-label {
+  color: var(--text);
+}
+
+.section-nav-link:hover .section-nav-label,
+.section-nav-link:focus-visible .section-nav-label {
+  color: var(--text);
+}
+
+/* Hide on smaller viewports: not enough gutter for Medium-style rail */
+@media (max-width: 1100px) {
+  .section-nav {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-nav-dash,
+  .section-nav-label {
+    transition: none;
+  }
+}

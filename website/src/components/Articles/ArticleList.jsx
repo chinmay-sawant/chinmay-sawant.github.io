@@ -22,23 +22,37 @@ const toDevtoFormat = (tweet) => ({
 const ArticleList = () => {
   const { articles: devtoArticles, loading, error } = useDevtoArticles();
 
-  if (loading) return <div className="loading">Loading articles…</div>;
-  if (error) return <div className="loading">Failed to load articles</div>;
-
-  const allArticles = [...devtoArticles, ...articlesData.map(toDevtoFormat)];
+  const allArticles = [
+    ...(devtoArticles || []),
+    ...articlesData.map(toDevtoFormat),
+  ];
 
   return (
-    <section className="section article-list-section">
-      <div className="section-label">
-        <span className="section-number">-</span>
+    <section className="section article-list-section" id="writing">
+      <div className="section-header">
         <h2 className="section-title">Writing</h2>
-        <span className="section-divider" />
+        <a
+          href="https://dev.to/chinmay-sawant"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="section-aside projects-github-link"
+        >
+          On Dev.to
+        </a>
       </div>
-      <div className="article-list">
-        {allArticles.map((article) => (
-          <ArticleCard key={article.id} article={article} />
-        ))}
-      </div>
+
+      {loading && <p className="loading">Loading articles…</p>}
+      {error && !allArticles.length && (
+        <p className="loading">Could not load articles right now.</p>
+      )}
+
+      {!loading && allArticles.length > 0 && (
+        <div className="article-list">
+          {allArticles.map((article) => (
+            <ArticleCard key={article.id} article={article} />
+          ))}
+        </div>
+      )}
     </section>
   );
 };
