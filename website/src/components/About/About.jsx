@@ -39,7 +39,7 @@ const About = ({ onNavigate }) => (
     <div className="about-context">
       <div className="about-context-building"><span className="context-label">Building</span><p>Open-source PDF tools &amp; healthcare backend systems</p></div>
       <div><span className="context-label">Currently</span><p>Senior Software Engineer <span>at CitiusTech</span></p></div>
-      <div><span className="context-label">Beyond the keyboard</span><p>Books, bicycles &amp; a bit of chess</p></div>
+      <div className="about-context-beyond"><span className="context-label">Beyond the keyboard</span><p>Books, bicycles &amp; a bit of chess</p></div>
     </div>
   </section>
 );
