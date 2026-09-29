@@ -1,6 +1,6 @@
 .about-introduction { position: relative; isolation: isolate; overflow: hidden; min-height: 650px; padding: 48px; border: 1px solid var(--border); border-radius: 20px; }
 .about-landscape { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: -2; pointer-events: none; }
-.about-introduction::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #1b1c1afa 0%, #1b1c1aec 34%, #1b1c1a80 62%, #1b1c1a10 100%); }
+.about-introduction::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #15191efa 0%, #15191eec 34%, #15191e80 62%, #15191e10 100%); }
 body.light .about-introduction::before { background: linear-gradient(90deg, #f6f4eefa 0%, #f6f4eeee 34%, #f6f4ee90 62%, #f6f4ee00 100%); }
 .about-introduction .hero { max-width: 560px; }
 .about-introduction .hero-lede { max-width: 46ch; }
@@ -18,7 +18,7 @@ body.light .about-introduction::before { background: linear-gradient(90deg, #f6f
 @media (max-width: 640px) {
   .about-introduction { min-height: 760px; padding: 28px 22px 150px; border-radius: 14px; }
   .about-landscape { object-position: 68% center; }
-  .about-introduction::before { background: linear-gradient(180deg, #1b1c1aee 0%, #1b1c1af5 75%, #1b1c1ae8 84%, #1b1c1a10 100%); }
+  .about-introduction::before { background: linear-gradient(180deg, #15191eee 0%, #15191ef5 75%, #15191ee8 84%, #15191e10 100%); }
   body.light .about-introduction::before { background: linear-gradient(180deg, #f6f4eeee 0%, #f6f4eef5 75%, #f6f4eee8 84%, #f6f4ee00 100%); }
   .about-story { grid-template-columns: 1fr; gap: 24px; margin-top: 36px; }
   .about-story-title { font-size: 30px; }

@@ -11,6 +11,9 @@ export const useTheme = () => {
 
   useEffect(() => {
     document.body.classList.toggle('light', theme === 'light');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute(
+      'content', theme === 'light' ? '#f6f4ee' : '#15191e',
+    );
     try { localStorage.setItem('theme', theme); } catch { /* The theme still works without persistence. */ }
   }, [theme]);
 

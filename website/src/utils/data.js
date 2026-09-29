@@ -96,7 +96,7 @@ export const skillGroups = [
 export const experienceData = [
   {
     company: 'CitiusTech · Mumbai, India',
-    role: 'Senior Golang Developer',
+    role: 'Senior Software Engineer',
     duration: 'Aug 2024 - Present',
     highlights: [
       'Shipped 40+ AWS Lambda microservices (gRPC + GraphQL/gqlgen) on the Patient Care Journey core team.',
@@ -121,10 +121,10 @@ export const experienceData = [
 ];
 
 export const interestsData = [
-  { name: 'reading', emoji: '📚' },
-  { name: 'cycling', emoji: '🚴' },
-  { name: 'music', emoji: '🎵' },
-  { name: 'exploring tech', emoji: '🔭' },
-  { name: 'chess', emoji: '♟️' },
-  { name: 'space', emoji: '🚀' },
+  { name: 'reading', icon: 'book' },
+  { name: 'cycling', icon: 'bicycle' },
+  { name: 'music', icon: 'music' },
+  { name: 'exploring tech', icon: 'orbit' },
+  { name: 'chess', icon: 'chess' },
+  { name: 'space', icon: 'rocket' },
 ];
