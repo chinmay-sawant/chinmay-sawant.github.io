@@ -6,7 +6,7 @@ const Hero = ({ onNavigate }) => (
     <h1 className="hero-name" id="hero-name">Chinmay<br />Sawant<span>.</span></h1>
     <p className="hero-lede">
       I build backend systems and developer tools in <strong>Go</strong>,
-      with roots in Java and Python. My work spans healthcare, edtech,
+      with roots in Java, Spring Boot, and Python. My work spans healthcare, edtech,
       and the open source projects that start with a simple question:
       <em> could this work better?</em>
     </p>
