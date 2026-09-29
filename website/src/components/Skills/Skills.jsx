@@ -59,7 +59,7 @@ const Skills = () => {
   return (
     <section className="section skills-section reveal" id="stack">
       <div className="section-header">
-        <h2 className="section-title">Stack</h2>
+        <div><span className="section-eyebrow">Tools of the trade</span><h1 className="section-title">The stack.</h1></div>
         <span className="section-aside">What I use most</span>
       </div>
 
@@ -99,7 +99,7 @@ const Skills = () => {
             <div className="skills-groups">
               {alsoUsedGroups.map((group) => (
                 <div key={group.label} className="skill-group">
-                  <h3 className="skill-group-label">{group.label}</h3>
+                  <h2 className="skill-group-label">{group.label}</h2>
                   <div className="skills-grid">
                     {group.skills.map((name) => (
                       <SkillTag key={name} name={name} />

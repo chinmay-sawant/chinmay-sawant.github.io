@@ -1,57 +1,29 @@
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
-import { useActiveSection } from '../../hooks/useActiveSection';
-import { HEADER_NAV, scrollToSection } from '../../utils/sections';
+import { PORTFOLIO_VIEWS } from '../../utils/views';
 import './Header.css';
 
-const Header = ({ theme, toggleTheme }) => {
-  const activeId = useActiveSection();
-
-  const handleNavClick = (e, id) => {
-    e.preventDefault();
-    scrollToSection(id);
-  };
-
+const Header = ({ theme, toggleTheme, view, onNavigate, onOpenWriting }) => {
   return (
     <header className="site-header">
       <div className="site-header-inner">
-        <a
-          href="#top"
-          className={`site-logo${activeId === 'top' ? ' is-active' : ''}`}
-          aria-label="Chinmay Sawant - home"
-          onClick={(e) => handleNavClick(e, 'top')}
-        >
-          cs
-        </a>
-
+        <div className="site-header-brand">
+          <a href="#about" className="site-logo" aria-label="Chinmay Sawant, home"
+            onClick={event => onNavigate(event, 'about')}>cs<span>.</span></a>
+        </div>
         <nav className="site-nav" aria-label="Primary">
-          {HEADER_NAV.map(({ id, label }) => {
-            const isActive = activeId === id;
-            return (
-              <a
-                key={id}
-                href={`#${id}`}
-                className={`site-nav-link${isActive ? ' is-active' : ''}`}
-                aria-current={isActive ? 'page' : undefined}
-                onClick={(e) => handleNavClick(e, id)}
-              >
-                {label}
-              </a>
-            );
-          })}
+          {PORTFOLIO_VIEWS.map(({ id, label }) => (
+            <a key={id} href={`#${id}`} className={`site-nav-link${view === id ? ' is-active' : ''}`}
+              aria-current={view === id ? 'page' : undefined} onClick={event => onNavigate(event, id)}>{label}</a>
+          ))}
+          <button type="button" className="site-nav-link writing-trigger" data-open-writing onClick={onOpenWriting}
+            aria-haspopup="dialog">Writing <span aria-hidden="true">↗</span></button>
         </nav>
-
         <div className="site-header-actions">
-          <a
-            href="mailto:sawantchinmay040@gmail.com"
-            className="site-header-cta"
-          >
-            Email
-          </a>
+          <a href="https://github.com/chinmay-sawant" target="_blank" rel="noopener noreferrer" className="site-header-cta">Let’s talk <span aria-hidden="true">↗</span></a>
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         </div>
       </div>
     </header>
   );
 };
-
 export default Header;

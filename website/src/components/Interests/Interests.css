@@ -10,8 +10,8 @@
 .interest-item {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 7px 12px;
+  gap: 10px;
+  padding: 10px 16px;
   font-size: 13px;
   color: var(--text-secondary);
   background: var(--bg-elevated);
@@ -21,10 +21,8 @@
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
-.interest-emoji {
-  font-size: 14px;
-  line-height: 1;
-}
+.interests-section { padding-top: 32px; border-top: 1px solid var(--border); }
+.interest-emoji { font-size: 14px; line-height: 1; }
 
 .interest-item:hover {
   border-color: var(--border-subtle);

@@ -5,7 +5,7 @@ const Experience = () => {
   return (
     <section className="section experience-section" id="experience">
       <div className="section-header">
-        <h2 className="section-title">Experience</h2>
+        <div><span className="section-eyebrow">The journey so far</span><h1 className="section-title">Where I&apos;ve been.</h1></div>
         <span className="section-aside">6+ years</span>
       </div>
       <div className="experience-list">
@@ -15,7 +15,7 @@ const Experience = () => {
               <time className="experience-duration">{exp.duration}</time>
             </div>
             <div className="experience-content">
-              <h3 className="experience-role">{exp.role}</h3>
+              <h2 className="experience-role">{exp.role}</h2>
               <p className="experience-company">{exp.company}</p>
               {exp.highlights ? (
                 <ul className="experience-highlights">

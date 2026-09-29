@@ -47,7 +47,7 @@ export const fetchGitHubRepos = async () => {
   if (!reposPromise) {
     reposPromise = fetch(
       `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed&direction=desc`,
-      { headers: { Accept: 'application/vnd.github+json' } },
+      { headers: { Accept: 'application/vnd.github+json' }, signal: AbortSignal.timeout(8000) },
     )
       .then(async (response) => {
         if (!response.ok) {
@@ -103,18 +103,19 @@ const EXCLUDED_REPO_NAMES = new Set([
 
 /**
  * Most recently pushed public repos (true GitHub activity feed).
- * Drops forks, archived, and known junk; does not hide curated projects.
+ * Drops forks, archived, excluded repositories, and projects in the archive.
  * @param {object[]} repos
- * @param {string[]} [_knownRepoKeys] unused; kept for call-site compatibility
+ * @param {string[]} knownRepoKeys curated owner/repo names
  * @param {number} limit
  */
-export const filterRecentRepos = (repos, _knownRepoKeys = [], limit = 8) => {
-  void _knownRepoKeys;
+export const filterRecentRepos = (repos, knownRepoKeys = [], limit = 8) => {
+  const curated = new Set(knownRepoKeys.map((key) => key.toLowerCase()));
   return [...repos]
     .filter((repo) => {
       if (repo.fork || repo.archived) return false;
       const name = repo.name.toLowerCase();
       if (EXCLUDED_REPO_NAMES.has(name)) return false;
+      if (curated.has(repo.fullName.toLowerCase())) return false;
       return true;
     })
     .sort(

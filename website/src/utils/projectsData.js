@@ -29,17 +29,48 @@ export const projectsdata = {
       ],
       stars: 'chinmay-sawant/goslop',
       active: true,
-      featured: true,
     },
     {
       title: 'gopdfsuit',
       description:
-        'High-performance PDF generation engine built from scratch in Go. PDF/UA-2 archival compliance with ultra-fast, in-memory JSON templates. Born as a cost-saving alternative to third-party PDF APIs at work.',
+        'A PDF toolkit built around JSON templates. Generate, merge, compress and fill documents with a Go library, REST API or Python bindings. Browser tools run locally with WebAssembly.',
+      summary: 'Documents, on your terms.',
+      artwork: 'document',
+      tags: ['Go', 'PDF', 'WebAssembly'],
       links: [
         { text: 'source', url: 'https://github.com/chinmay-sawant/gopdfsuit' },
         { text: 'demo', url: 'https://chinmay-sawant.github.io/gopdfsuit/' },
       ],
       stars: 'chinmay-sawant/gopdfsuit',
+      active: true,
+      featured: true,
+    },
+    {
+      title: 'gowkhtmltopdf',
+      description:
+        'An HTML-to-PDF and image engine written in Go. Its own layout pipeline handles print templates, tables and multipage documents, with no browser process or cgo.',
+      summary: 'HTML in. Pages out.',
+      artwork: 'layout',
+      tags: ['Go', 'HTML & CSS', 'Rendering'],
+      links: [
+        { text: 'source', url: 'https://github.com/chinmay-sawant/gowkhtmltopdf' },
+        { text: 'demo', url: 'https://chinmay-sawant.github.io/gowkhtmltopdf/' },
+      ],
+      stars: 'chinmay-sawant/gowkhtmltopdf',
+      active: true,
+      featured: true,
+    },
+    {
+      title: 'SpectrePS',
+      description:
+        'A Go library and CLI for PDF and PostScript subsets. Rasterize pages, rewrite documents, extract text and compare pixels with an independent graphics engine.',
+      summary: 'Inside the printed page.',
+      artwork: 'vector',
+      tags: ['Go', 'PostScript', 'Graphics'],
+      links: [
+        { text: 'source', url: 'https://github.com/chinmay-sawant/spectrePS' },
+      ],
+      stars: 'chinmay-sawant/spectrePS',
       active: true,
       featured: true,
     },
@@ -64,7 +95,7 @@ export const projectsdata = {
     {
       title: 'gochromedp',
       description:
-        'Go wrapper around chromedp, extracted from GoPDFSuit for reusable headless Chrome automation in PDF and web rendering pipelines.',
+        'Go wrapper around chromedp, extracted from gopdfsuit for reusable headless Chrome automation in PDF and web rendering pipelines.',
       links: [
         { text: 'source', url: 'https://github.com/chinmay-sawant/gochromedp' },
       ],

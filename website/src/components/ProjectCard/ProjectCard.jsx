@@ -1,10 +1,17 @@
 import { useGitHubStars } from '../../hooks/useGitHubStars';
 import { getGitHubRepo } from '../../utils/github';
+import ProjectArtwork from '../Projects/ProjectArtwork';
 import './ProjectCard.css';
 
 const StarIcon = () => (
   <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
     <path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2-6-4.4h7.6z" />
+  </svg>
+);
+
+const ArrowIcon = () => (
+  <svg viewBox="0 0 20 20" width="12" height="12" fill="none" aria-hidden="true">
+    <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" strokeWidth="1.5" />
   </svg>
 );
 
@@ -26,68 +33,85 @@ const ProjectCard = ({ project, variant = 'default' }) => {
 
   return (
     <article className={`project-card reveal ${isFeatured ? 'project-card--featured' : ''}`}>
-      <div className="project-card-header">
-        <div className="project-card-title-row">
-          <h3 className="project-card-title">{project.title}</h3>
-          {project.active && <span className="project-badge">Active</span>}
-          {project.category && !isFeatured && (
-            <span className="project-category">{project.category}</span>
-          )}
-        </div>
-        {repo && !loading && stars > 0 && (
-          <a
-            href={sourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-stars"
-            aria-label={`${stars} GitHub stars`}
-          >
-            <StarIcon />
-            <span>{stars}</span>
-          </a>
+      {isFeatured && <ProjectArtwork kind={project.artwork} />}
+      <div className="project-card-body">
+        {isFeatured && (
+          <div className="project-card-eyebrow">
+            <span>{project.category} / open source</span>
+            {project.active && <span className="project-badge">In development</span>}
+          </div>
         )}
-      </div>
-
-      <p className="project-card-description">{project.description}</p>
-
-      {project.badges && (
-        <div className="project-badges">
-          {project.badges.map((badge, index) => (
+        <div className="project-card-header">
+          <div className="project-card-title-row">
+            <h2 className="project-card-title">{project.title}</h2>
+            {project.active && !isFeatured && <span className="project-badge">Active</span>}
+            {project.category && !isFeatured && (
+              <span className="project-category">{project.category}</span>
+            )}
+          </div>
+          {repo && !loading && stars > 0 && (
             <a
-              key={index}
-              href={project.links[0]?.url}
+              href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={badge.alt}
+              className="project-stars"
+              aria-label={`${stars} GitHub stars`}
             >
-              <img src={badge.src} alt={badge.alt} />
+              <StarIcon />
+              <span>{stars}</span>
+            </a>
+          )}
+        </div>
+
+        {isFeatured && <p className="project-card-summary">{project.summary}</p>}
+        <p className="project-card-description">{project.description}</p>
+
+        {project.tags && (
+          <ul className="project-tags" aria-label="Technologies">
+            {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
+          </ul>
+        )}
+
+        {project.badges && (
+          <div className="project-badges">
+            {project.badges.map((badge, index) => (
+              <a
+                key={index}
+                href={project.links[0]?.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={badge.alt}
+              >
+                <img src={badge.src} alt={badge.alt} />
+              </a>
+            ))}
+          </div>
+        )}
+
+        <div className="project-links">
+          {project.links.map((link, index) => (
+            <a
+              key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-link"
+            >
+              {formatLinkLabel(link.text)}
+              <ArrowIcon />
             </a>
           ))}
-        </div>
-      )}
 
-      <div className="project-links">
-        {project.links.map((link, index) => (
-          <a
-            key={index}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link"
-          >
-            {formatLinkLabel(link.text)}
-          </a>
-        ))}
-
-        {chromeRating && (
-          <span className="project-rating">
-            <StarIcon />
-            {chromeRating.rating.toFixed(1)}
-            <span className="project-rating-count">
-              ({chromeRating.reviewcount ?? chromeRating.reviewCount})
+          {chromeRating && (
+            <span className="project-rating">
+              <StarIcon />
+              {chromeRating.rating.toFixed(1)}
+              <span className="project-rating-count">
+                ({chromeRating.reviewcount ?? chromeRating.reviewCount})
+              </span>
             </span>
-          </span>
-        )}
+          )}
+        </div>
       </div>
     </article>
   );
