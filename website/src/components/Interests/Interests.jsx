@@ -7,7 +7,7 @@ const Interests = () => {
   return (
     <section className="section interests-section reveal" id="hobbies">
       <div className="section-header">
-        <div><span className="section-eyebrow">04 / A little off-duty</span><h2 className="section-title">Beyond the code.</h2></div>
+        <div><span className="section-eyebrow">A little off-duty</span><h2 className="section-title">Beyond the code.</h2></div>
       </div>
       <ul className="interests-list">
         {interestsData.map((item) => (
