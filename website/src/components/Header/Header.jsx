@@ -3,14 +3,12 @@ import { PORTFOLIO_VIEWS } from '../../utils/views';
 import './Header.css';
 
 const Header = ({ theme, toggleTheme, view, onNavigate, onOpenWriting }) => {
-  const title = PORTFOLIO_VIEWS.find(item => item.id === view).label;
   return (
     <header className="site-header">
       <div className="site-header-inner">
         <div className="site-header-brand">
           <a href="#about" className="site-logo" aria-label="Chinmay Sawant, home"
             onClick={event => onNavigate(event, 'about')}>cs<span>.</span></a>
-          <span className="site-header-title">{title}</span>
         </div>
         <nav className="site-nav" aria-label="Primary">
           {PORTFOLIO_VIEWS.map(({ id, label }) => (
