@@ -8,7 +8,7 @@ const Hero = ({ onNavigate }) => (
       I build backend systems and developer tools in <strong>Go</strong>,
       with roots in Java, Spring Boot, and Python. My work spans healthcare, edtech,
       and the open source projects that start with a simple question:
-      <em> could this work better?</em>
+      <em> Could I build it myself and learn along the way?</em>
     </p>
     <div className="hero-actions">
       <a href="#work" className="btn btn-primary" onClick={event => onNavigate(event, 'work')}>Explore my work <span aria-hidden="true">↗</span></a>

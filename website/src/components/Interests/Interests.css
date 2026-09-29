@@ -22,7 +22,7 @@
 }
 
 .interests-section { padding-top: 32px; border-top: 1px solid var(--border); }
-.interest-emoji { font-size: 14px; line-height: 1; }
+.interest-icon { width: 18px; height: 18px; flex: 0 0 18px; color: var(--accent); }
 
 .interest-item:hover {
   border-color: var(--border-subtle);
