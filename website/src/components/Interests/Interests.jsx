@@ -12,7 +12,11 @@ const Interests = () => {
       <ul className="interests-list">
         {interestsData.map((item) => (
           <li key={item.name} className="interest-item">
-            <span className="interest-marker" aria-hidden="true">✳</span>
+            {item.emoji && (
+              <span className="interest-emoji" aria-hidden="true">
+                {item.emoji}
+              </span>
+            )}
             {item.name}
           </li>
         ))}
