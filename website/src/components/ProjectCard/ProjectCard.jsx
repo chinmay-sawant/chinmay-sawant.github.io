@@ -43,7 +43,7 @@ const ProjectCard = ({ project, variant = 'default' }) => {
         )}
         <div className="project-card-header">
           <div className="project-card-title-row">
-            <h3 className="project-card-title">{project.title}</h3>
+            <h2 className="project-card-title">{project.title}</h2>
             {project.active && !isFeatured && <span className="project-badge">Active</span>}
             {project.category && !isFeatured && (
               <span className="project-category">{project.category}</span>

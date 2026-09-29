@@ -1,6 +1,6 @@
 import './Hero.css';
 
-const Hero = () => (
+const Hero = ({ onNavigate }) => (
   <div className="hero" id="top">
     <p className="hero-eyebrow"><span aria-hidden="true" /> Software engineer · Mumbai, India</p>
     <h1 className="hero-name" id="hero-name">Chinmay<br />Sawant<span>.</span></h1>
@@ -12,7 +12,7 @@ const Hero = () => (
       <em> could this work better?</em>
     </p>
     <div className="hero-actions">
-      <a href="#work" className="btn btn-primary">Explore my work <span aria-hidden="true">↗</span></a>
+      <a href="#work" className="btn btn-primary" onClick={event => onNavigate(event, 'work')}>Explore my work <span aria-hidden="true">↗</span></a>
       <a href="mailto:sawantchinmay040@gmail.com" className="hero-contact">Say hello <span aria-hidden="true">↗</span></a>
     </div>
     <div className="hero-links">

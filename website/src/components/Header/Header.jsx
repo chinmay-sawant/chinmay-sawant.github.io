@@ -1,19 +1,21 @@
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
-import { useActiveSection } from '../../hooks/useActiveSection';
-import { HEADER_NAV, scrollToSection } from '../../utils/sections';
+import { PORTFOLIO_VIEWS } from '../../utils/views';
 import './Header.css';
 
-const Header = ({ theme, toggleTheme, onOpenWriting }) => {
-  const activeId = useActiveSection();
-  const navigate = (event, id) => { event.preventDefault(); scrollToSection(id); };
+const Header = ({ theme, toggleTheme, view, onNavigate, onOpenWriting }) => {
+  const title = PORTFOLIO_VIEWS.find(item => item.id === view).label;
   return (
     <header className="site-header">
       <div className="site-header-inner">
-        <a href="#about" className="site-logo" aria-label="Chinmay Sawant, home" onClick={event => navigate(event, 'about')}>cs<span>.</span></a>
+        <div className="site-header-brand">
+          <a href="#about" className="site-logo" aria-label="Chinmay Sawant, home"
+            onClick={event => onNavigate(event, 'about')}>cs<span>.</span></a>
+          <span className="site-header-title">{title}</span>
+        </div>
         <nav className="site-nav" aria-label="Primary">
-          {HEADER_NAV.map(({ id, label }) => (
-            <a key={id} href={`#${id}`} className={`site-nav-link${activeId === id ? ' is-active' : ''}`}
-              aria-current={activeId === id ? 'location' : undefined} onClick={event => navigate(event, id)}>{label}</a>
+          {PORTFOLIO_VIEWS.map(({ id, label }) => (
+            <a key={id} href={`#${id}`} className={`site-nav-link${view === id ? ' is-active' : ''}`}
+              aria-current={view === id ? 'page' : undefined} onClick={event => onNavigate(event, id)}>{label}</a>
           ))}
           <button type="button" className="site-nav-link writing-trigger" data-open-writing onClick={onOpenWriting}
             aria-haspopup="dialog">Writing <span aria-hidden="true">↗</span></button>

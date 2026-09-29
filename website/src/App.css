@@ -10,8 +10,9 @@ button { cursor: pointer; }
 a { color: inherit; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; border-radius: 4px; }
 .site { min-height: 100vh; overflow: clip; }
-.container { width: 100%; max-width: var(--site-max); margin: 0 auto; padding: 0 32px 126px; }
+.container { width: 100%; max-width: var(--site-max); margin: 0 auto; padding: 0 32px 48px; }
 .main { display: flex; flex-direction: column; gap: var(--section-gap); padding-top: 142px; }
+.main:focus { outline: none; }
 .section { scroll-margin-top: calc(var(--nav-height) + 28px); }
 .section-header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 30px; flex-wrap: wrap; }
 .section-title { font-family: var(--font-serif); font-size: 38px; font-weight: 400; letter-spacing: -.025em; line-height: 1.15; }
@@ -33,10 +34,13 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 .skip-link { position: fixed; z-index: 200; top: 12px; left: 16px; padding: 12px 20px; background: var(--text); color: var(--bg); border-radius: 8px; transform: translateY(-150%); }
 .skip-link:focus { transform: translateY(0); }
 * { scrollbar-width: thin; scrollbar-color: var(--border-subtle) transparent; }
+@media (max-width: 960px) {
+  .main { padding-top: 160px; }
+}
 @media (max-width: 640px) {
   :root { --section-gap: 70px; }
-  .container { padding: 0 22px 120px; }
-  .main { padding-top: 110px; }
+  .container { padding: 0 20px 36px; }
+  .main { padding-top: 194px; }
   .section-title { font-size: 32px; }
   .section-aside { font-size: 10px; }
 }

@@ -150,7 +150,6 @@
   padding: 10px 14px;
 }
 
-.skills-section { padding-top: 32px; border-top: 1px solid var(--border); }
 .skill-icon { width: 18px; height: 18px; }
 @media (max-width: 640px) { .skills-primary { padding: 18px; gap: 8px; } }
 

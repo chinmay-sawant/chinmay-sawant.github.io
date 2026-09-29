@@ -23,21 +23,10 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  margin-bottom: 64px;
 }
 
 .projects-more {
-  padding-top: 30px;
-  border-top: 1px solid var(--border);
   margin-bottom: 64px;
-}
-
-.projects-archive-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 22px;
 }
 
 .projects-subhead {
@@ -254,13 +243,6 @@
 
   .projects-featured {
     gap: 22px;
-    margin-bottom: 44px;
-  }
-
-  .projects-archive-header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
   }
 
   .projects-intro {

@@ -1,12 +1,18 @@
 import Hero from '../Hero/Hero';
 import './About.css';
 
-const About = () => (
+const About = ({ onNavigate }) => (
   <section className="section about-section" id="about" aria-labelledby="hero-name">
-    <img className="about-art" src="/images/about-botanical.webp" alt="" width="1536" height="1024" decoding="async" />
-    <Hero />
-    <details className="about-more">
-      <summary>A little more about me <span aria-hidden="true">+</span></summary>
+    <div className="about-introduction">
+      <img className="about-landscape" src="/images/about-landscape.webp" alt="" width="1672" height="941"
+        decoding="async" loading="eager" />
+      <Hero onNavigate={onNavigate} />
+    </div>
+    <div className="about-story">
+      <div>
+        <span className="section-eyebrow">A little more about me</span>
+        <h2 className="about-story-title">From an idea<br />to something useful<span>.</span></h2>
+      </div>
       <div className="section-body">
         <p>
           I own features from the first conversation with a customer to the code
@@ -29,7 +35,7 @@ const About = () => (
           and share.
         </p>
       </div>
-    </details>
+    </div>
     <div className="about-context">
       <div><span className="context-label">Currently</span><p>Senior Golang Developer <span>at CitiusTech</span></p></div>
       <div><span className="context-label">Building</span><p>PDF tools &amp; backend systems</p></div>
