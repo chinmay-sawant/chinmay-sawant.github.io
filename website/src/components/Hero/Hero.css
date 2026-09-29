@@ -3,7 +3,6 @@
 .hero-eyebrow > span { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); }
 .hero-name { font-family: var(--font-serif); font-size: clamp(64px, 7.5vw, 104px); font-weight: 400; letter-spacing: -.055em; line-height: .94; margin: 30px 0 22px; }
 .hero-name > span { color: var(--accent); }
-.hero-note { font-family: var(--font-serif); font-size: clamp(22px, 2.5vw, 29px); font-style: italic; color: var(--text-secondary); margin-bottom: 20px; letter-spacing: -.02em; }
 .hero-lede { max-width: 49ch; font-size: 16px; line-height: 1.85; color: var(--text-secondary); text-wrap: pretty; }
 .hero-lede strong { color: var(--text); font-weight: 500; }
 .hero-lede em { font-style: normal; color: var(--text); }
@@ -17,6 +16,5 @@
   .hero { max-width: 100%; }
   .hero-eyebrow { font-size: 10px; }
   .hero-name { margin-top: 30px; font-size: 72px; }
-  .hero-note { font-size: 25px; max-width: 220px; }
   .hero-lede { font-size: 15px; margin-top: 24px; }
 }
