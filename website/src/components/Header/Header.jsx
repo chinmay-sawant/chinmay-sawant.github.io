@@ -19,7 +19,7 @@ const Header = ({ theme, toggleTheme, view, onNavigate, onOpenWriting }) => {
             aria-haspopup="dialog">Writing <span aria-hidden="true">↗</span></button>
         </nav>
         <div className="site-header-actions">
-          <a href="mailto:sawantchinmay040@gmail.com" className="site-header-cta">Let’s talk <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/chinmay-sawant" target="_blank" rel="noopener noreferrer" className="site-header-cta">Let’s talk <span aria-hidden="true">↗</span></a>
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         </div>
       </div>

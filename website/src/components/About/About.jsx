@@ -38,7 +38,7 @@ const About = ({ onNavigate }) => (
     </div>
     <div className="about-context">
       <div><span className="context-label">Currently</span><p>Senior Golang Developer <span>at CitiusTech</span></p></div>
-      <div><span className="context-label">Building</span><p>PDF tools &amp; backend systems</p></div>
+      <div><span className="context-label">Building</span><p>Open-source PDF tools &amp; healthcare backend systems</p></div>
       <div><span className="context-label">Beyond the keyboard</span><p>Books, bicycles &amp; a bit of chess</p></div>
     </div>
   </section>

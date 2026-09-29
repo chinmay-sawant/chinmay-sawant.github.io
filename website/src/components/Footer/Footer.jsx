@@ -5,7 +5,7 @@ const Footer = ({ onOpenWriting }) => {
     <footer className="footer">
       <div className="footer-invitation">
         <p className="section-eyebrow">Have something in mind?</p>
-        <a href="mailto:sawantchinmay040@gmail.com">Let’s build something<span aria-hidden="true"> ↗</span></a>
+        <a href="https://github.com/chinmay-sawant" target="_blank" rel="noopener noreferrer">Let’s build something<span aria-hidden="true"> ↗</span></a>
       </div>
       <div className="footer-top">
         <div className="footer-links">
@@ -24,7 +24,7 @@ const Footer = ({ onOpenWriting }) => {
           >
             LinkedIn
           </a>
-          <a href="mailto:sawantchinmay040@gmail.com">Email</a>
+          <a href="https://github.com/chinmay-sawant" target="_blank" rel="noopener noreferrer">GitHub profile</a>
           <a href="https://dev.to/chinmay-sawant" target="_blank" rel="noopener noreferrer">
             Dev.to
           </a>

@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
-import { PORTFOLIO_VIEWS, viewFromHash } from '../utils/views';
+import { viewFromHash } from '../utils/views';
 
 export function usePortfolioView() {
   const [view, setView] = useState(() => viewFromHash(window.location.hash) ?? 'about');
@@ -20,7 +20,6 @@ export function usePortfolioView() {
 
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
-    document.title = `${PORTFOLIO_VIEWS.find(item => item.id === view).label} · Chinmay Sawant`;
   }, [view]);
 
   const navigate = (event, id) => {

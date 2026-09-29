@@ -4,7 +4,7 @@ const Hero = ({ onNavigate }) => (
   <div className="hero" id="top">
     <p className="hero-eyebrow"><span aria-hidden="true" /> Software engineer · Mumbai, India</p>
     <h1 className="hero-name" id="hero-name">Chinmay<br />Sawant<span>.</span></h1>
-    <p className="hero-note">Systems thinking. A curious mind.</p>
+    <p className="hero-note">Systems thinking.</p>
     <p className="hero-lede">
       I build backend systems and developer tools in <strong>Go</strong>,
       with roots in Java and Python. My work spans healthcare, edtech,
@@ -13,7 +13,7 @@ const Hero = ({ onNavigate }) => (
     </p>
     <div className="hero-actions">
       <a href="#work" className="btn btn-primary" onClick={event => onNavigate(event, 'work')}>Explore my work <span aria-hidden="true">↗</span></a>
-      <a href="mailto:sawantchinmay040@gmail.com" className="hero-contact">Say hello <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/chinmay-sawant" target="_blank" rel="noopener noreferrer" className="hero-contact">Say hello <span aria-hidden="true">↗</span></a>
     </div>
     <div className="hero-links">
       <a href="https://github.com/chinmay-sawant" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
