@@ -43,11 +43,11 @@ function App() {
           onOpenWriting={() => setWritingOpen(true)} />
         <div className="container">
           <main id="main" className="main" tabIndex={-1}>
-            {view === 'about' && <About onNavigate={navigate} />}
+            {view === 'about' && <><About onNavigate={navigate} /><Interests /></>}
             {view === 'work' && <Projects />}
             {view === 'projects' && <ProjectArchive />}
             {view === 'stack' && <Skills />}
-            {view === 'experience' && <><Experience /><Interests /></>}
+            {view === 'experience' && <Experience />}
           </main>
           <Footer onOpenWriting={() => setWritingOpen(true)} />
         </div>
