@@ -1,25 +1,22 @@
-/** Page sections used by header nav, section rail, and scroll spy. */
 export const PAGE_SECTIONS = [
-  { id: 'top', label: 'Intro' },
-  { id: 'work', label: 'Work' },
-  { id: 'experience', label: 'Experience' },
   { id: 'about', label: 'About' },
+  { id: 'work', label: 'Work' },
   { id: 'stack', label: 'Stack' },
-  { id: 'writing', label: 'Writing' },
-  { id: 'hobbies', label: 'Hobbies' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'hobbies', label: 'Off-duty' },
 ];
 
-/** Primary header links (subset of PAGE_SECTIONS). */
 export const HEADER_NAV = [
+  { id: 'about', label: 'About' },
   { id: 'work', label: 'Work' },
-  { id: 'experience', label: 'Experience' },
   { id: 'stack', label: 'Stack' },
-  { id: 'writing', label: 'Writing' },
+  { id: 'experience', label: 'Experience' },
 ];
 
 export function scrollToSection(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const element = document.getElementById(id);
+  if (!element) return;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  element.scrollIntoView({ behavior: reduced ? 'instant' : 'smooth', block: 'start' });
   window.history.replaceState(null, '', `#${id}`);
 }

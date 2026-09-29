@@ -1,0 +1,278 @@
+.project-artwork {
+  height: 236px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+}
+
+.art-document-stack {
+  position: relative;
+  width: 145px;
+  height: 180px;
+  transform: rotate(-7deg);
+}
+
+.art-paper {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.art-paper-back {
+  transform: translate(15px, -4px) rotate(11deg);
+  background: var(--bg);
+}
+
+.art-paper-front {
+  padding: 19px 16px;
+}
+
+.art-paper-kicker {
+  font: 6px var(--font-mono);
+  letter-spacing: 0.12em;
+  display: block;
+  color: var(--text-tertiary);
+}
+
+.art-paper-heading {
+  display: block;
+  width: 64%;
+  height: 6px;
+  margin: 15px 0 10px;
+  background: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.art-paper-lines {
+  display: grid;
+  gap: 5px;
+}
+
+.art-paper-lines i {
+  height: 2px;
+  background: var(--border);
+}
+
+.art-paper-lines i:last-child {
+  width: 72%;
+}
+
+.art-paper-table {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.art-paper-table i {
+  height: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.art-paper-table i:nth-child(even) {
+  border-left: 1px solid var(--border);
+}
+
+.art-paper-signature {
+  font: italic 13px var(--font-serif);
+  color: var(--accent);
+  display: block;
+  margin-top: 12px;
+}
+
+.art-paper-page {
+  position: absolute;
+  bottom: 9px;
+  right: 12px;
+  font: 7px var(--font-mono);
+  color: var(--text-tertiary);
+}
+
+.art-file-label {
+  position: absolute;
+  right: -32px;
+  bottom: 25px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--accent);
+  font: 12px var(--font-mono);
+  transform: rotate(7deg);
+}
+
+.art-layout-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.art-code-window {
+  width: 145px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  transform: translateY(13px);
+  flex-shrink: 0;
+}
+
+.art-window-bar {
+  display: flex;
+  padding: 9px;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.art-window-bar i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.art-code-lines {
+  display: grid;
+  gap: 8px;
+  padding: 16px 11px 23px;
+  font: 8px var(--font-mono);
+  color: var(--text-secondary);
+}
+
+.art-code-lines span:nth-child(2) {
+  color: var(--accent);
+}
+
+.art-layout-arrow {
+  color: var(--accent);
+  font-size: 22px;
+  align-self: center;
+}
+
+.art-layout-page {
+  width: 92px;
+  height: 142px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 17px 12px;
+  transform: translateY(-13px);
+  flex-shrink: 0;
+}
+
+.art-layout-page > span {
+  display: block;
+  margin-bottom: 12px;
+  font: 21px var(--font-serif);
+  color: var(--text);
+}
+
+.art-layout-page > i {
+  display: block;
+  height: 2px;
+  margin-bottom: 5px;
+  background: var(--border);
+}
+
+.art-layout-blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin: 13px 0;
+}
+
+.art-layout-blocks i {
+  height: 23px;
+  border: 1px solid var(--border);
+  background: var(--accent-muted);
+}
+
+.art-layout-page small {
+  display: block;
+  font: 6px var(--font-mono);
+  text-align: right;
+}
+
+.project-artwork--vector {
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.art-vector-drawing {
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+}
+
+.art-vector-drawing svg {
+  display: block;
+  width: 100%;
+}
+
+.art-vector-guide {
+  stroke: var(--text-tertiary);
+  stroke-width: 0.7;
+  stroke-dasharray: 3 3;
+}
+
+.art-vector-curve {
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.art-vector-shape {
+  fill: var(--accent-muted);
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.art-vector-anchor {
+  fill: var(--bg-elevated);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.art-vector-handle {
+  fill: var(--text-tertiary);
+}
+
+.art-vector-origin,
+.art-vector-label {
+  position: absolute;
+  font: 8px var(--font-mono);
+  color: var(--text-tertiary);
+}
+
+.art-vector-origin {
+  left: 15%;
+  bottom: 7%;
+}
+
+.art-vector-label {
+  right: 10%;
+  top: 0;
+}
+
+@media (min-width: 721px) and (max-width: 1040px) {
+  .art-layout-flow {
+    gap: 6px;
+    padding: 0 12px;
+  }
+
+  .art-code-window {
+    width: 112px;
+  }
+
+  .art-code-lines {
+    font-size: 6px;
+  }
+
+  .art-layout-page {
+    width: 74px;
+    padding-inline: 9px;
+  }
+}

@@ -1,51 +1,24 @@
-import { useState } from 'react';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import { PAGE_SECTIONS, scrollToSection } from '../../utils/sections';
 import './SectionNav.css';
 
 const SectionNav = () => {
   const activeId = useActiveSection();
-  const [hovered, setHovered] = useState(false);
-
-  const handleClick = (e, id) => {
-    e.preventDefault();
-    scrollToSection(id);
-  };
-
   return (
-    <nav
-      className={`section-nav${hovered ? ' is-expanded' : ''}`}
-      aria-label="Page sections"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocus={() => setHovered(true)}
-      onBlur={(e) => {
-        if (!e.currentTarget.contains(e.relatedTarget)) {
-          setHovered(false);
-        }
-      }}
-    >
+    <nav className="section-nav" aria-label="Page sections">
       <ul className="section-nav-list">
-        {PAGE_SECTIONS.map(({ id, label }) => {
-          const isActive = activeId === id;
-          return (
-            <li key={id} className="section-nav-item">
-              <a
-                href={`#${id}`}
-                className={`section-nav-link${isActive ? ' is-active' : ''}`}
-                aria-current={isActive ? 'true' : undefined}
-                aria-label={label}
-                onClick={(e) => handleClick(e, id)}
-              >
-                <span className="section-nav-label">{label}</span>
-                <span className="section-nav-dash" aria-hidden="true" />
-              </a>
-            </li>
-          );
-        })}
+        {PAGE_SECTIONS.map(({ id, label }, index) => (
+          <li key={id}>
+            <a href={`#${id}`} className={`section-nav-link${activeId === id ? ' is-active' : ''}`}
+              aria-current={activeId === id ? 'location' : undefined}
+              onClick={event => { event.preventDefault(); scrollToSection(id); }}>
+              <span className="section-nav-number" aria-hidden="true">0{index + 1}</span>
+              <span>{label}</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   );
 };
-
 export default SectionNav;

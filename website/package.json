@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run lint && vite build && cp dist/index.html ../index.html && rm -rf ../assets && cp -r dist/assets ../ && rm -rf assets && cp -r dist/assets ./ && rm -rf dist",
+    "build": "npm run check:size && npm run lint && vite build && cp dist/index.html ../index.html && cp -r dist/images ../ && rm -rf ../assets && cp -r dist/assets ../ && rm -rf assets && cp -r dist/assets ./ && rm -rf dist",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm run build && node deploy.js"
+    "deploy": "npm run build && node deploy.js",
+    "check:size": "node scripts/check-source-size.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

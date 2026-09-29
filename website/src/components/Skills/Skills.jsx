@@ -59,7 +59,7 @@ const Skills = () => {
   return (
     <section className="section skills-section reveal" id="stack">
       <div className="section-header">
-        <h2 className="section-title">Stack</h2>
+        <div><span className="section-eyebrow">02 / Tools of the trade</span><h2 className="section-title">The stack.</h2></div>
         <span className="section-aside">What I use most</span>
       </div>
 

@@ -7,16 +7,12 @@ const Interests = () => {
   return (
     <section className="section interests-section reveal" id="hobbies">
       <div className="section-header">
-        <h2 className="section-title">Hobbies</h2>
+        <div><span className="section-eyebrow">04 / A little off-duty</span><h2 className="section-title">Beyond the code.</h2></div>
       </div>
       <ul className="interests-list">
         {interestsData.map((item) => (
           <li key={item.name} className="interest-item">
-            {item.emoji && (
-              <span className="interest-emoji" aria-hidden="true">
-                {item.emoji}
-              </span>
-            )}
+            <span className="interest-marker" aria-hidden="true">✳</span>
             {item.name}
           </li>
         ))}

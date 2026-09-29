@@ -5,7 +5,7 @@ const Experience = () => {
   return (
     <section className="section experience-section" id="experience">
       <div className="section-header">
-        <h2 className="section-title">Experience</h2>
+        <div><span className="section-eyebrow">03 / The journey so far</span><h2 className="section-title">Where I&apos;ve been.</h2></div>
         <span className="section-aside">6+ years</span>
       </div>
       <div className="experience-list">

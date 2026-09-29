@@ -1,6 +1,20 @@
 .article-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
   border-top: 1px solid var(--border);
+}
+
+.writing-articles-status,
+.writing-articles-empty {
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.writing-articles-status {
+  margin-bottom: 20px;
+}
+
+.writing-articles-empty {
+  padding: 24px 0;
 }

@@ -1,10 +1,15 @@
 import './Footer.css';
 
-const Footer = () => {
+const Footer = ({ onOpenWriting }) => {
   return (
     <footer className="footer">
+      <div className="footer-invitation">
+        <p className="section-eyebrow">Have something in mind?</p>
+        <a href="mailto:sawantchinmay040@gmail.com">Let’s build something<span aria-hidden="true"> ↗</span></a>
+      </div>
       <div className="footer-top">
         <div className="footer-links">
+          <button type="button" onClick={onOpenWriting} aria-haspopup="dialog">Writing ↗</button>
           <a
             href="https://github.com/chinmay-sawant"
             target="_blank"

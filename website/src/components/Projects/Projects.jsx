@@ -1,8 +1,9 @@
-import { useContext, useMemo } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import {
   getFeaturedProjects,
   getOtherProjects,
+  getCuratedRepoKeys,
 } from '../../utils/projectsData';
 import { getGitHubRepo } from '../../utils/github';
 import { GitHubStarsContext } from '../../context/githubStarsContext';
@@ -76,6 +77,8 @@ const starCountFor = (project, starsMap) => {
 };
 
 const Projects = () => {
+  const [category, setCategory] = useState('all');
+  const [expanded, setExpanded] = useState(false);
   const { starsMap } = useContext(GitHubStarsContext);
   const featured = useMemo(() => getFeaturedProjects(), []);
   const others = useMemo(() => {
@@ -84,14 +87,31 @@ const Projects = () => {
       (a, b) => starCountFor(b, starsMap) - starCountFor(a, starsMap),
     );
   }, [starsMap]);
-  const { recent, loading: recentLoading } = useRecentGitHubRepos([], 8);
+  const categories = useMemo(
+    () => ['all', ...new Set(others.map((project) => project.category))],
+    [others],
+  );
+  const filtered = category === 'all'
+    ? others
+    : others.filter((project) => project.category === category);
+  const visible = expanded ? filtered : filtered.slice(0, 4);
+  const curatedRepoKeys = useMemo(() => getCuratedRepoKeys(), []);
+  const { recent, loading: recentLoading } = useRecentGitHubRepos(curatedRepoKeys, 6);
 
   return (
     <section className="section projects-section" id="work">
       <div className="section-header">
-        <h2 className="section-title">Selected work</h2>
-        <span className="section-aside">Open source &amp; side projects</span>
+        <div>
+          <span className="section-eyebrow">01 / Things I&apos;ve built</span>
+          <h2 className="section-title">Selected work<span className="projects-title-dot">.</span></h2>
+        </div>
+        <span className="section-aside">Independent tools. Open source.</span>
       </div>
+
+      <p className="projects-intro">
+        Lately, I&apos;ve been deep in documents. How they&apos;re built, how they&apos;re
+        rendered, and what happens inside a PDF. These are the projects I&apos;m working on.
+      </p>
 
       <div className="projects-featured">
         {featured.map((project) => (
@@ -105,18 +125,49 @@ const Projects = () => {
 
       {others.length > 0 && (
         <div className="projects-more">
-          <h3 className="projects-subhead">More projects</h3>
-          <div className="projects-grid">
-            {others.map((project) => (
+          <div className="projects-archive-header">
+            <h3 className="projects-subhead">The project archive</h3>
+            <span className="projects-archive-count">{others.length} projects &amp; experiments</span>
+          </div>
+          <div className="project-filters" role="group" aria-label="Filter projects by technology">
+            {categories.map((item) => (
+              <button
+                key={item}
+                type="button"
+                className={`project-filter${category === item ? ' is-active' : ''}`}
+                aria-pressed={category === item}
+                onClick={() => { setCategory(item); setExpanded(false); }}
+              >
+                {item === 'all' ? 'All projects' : item === 'vscode' ? 'VS Code' : item}
+              </button>
+            ))}
+          </div>
+          <p className="projects-filter-summary" aria-live="polite">
+            Showing {visible.length} of {filtered.length} projects
+          </p>
+          <div className="projects-grid" id="project-archive">
+            {visible.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
           </div>
+          {filtered.length > 4 && (
+            <button
+              className="projects-expand"
+              type="button"
+              aria-expanded={expanded}
+              aria-controls="project-archive"
+              onClick={() => setExpanded((value) => !value)}
+            >
+              {expanded ? 'Show fewer projects' : `Explore all ${filtered.length} projects`}
+              <span aria-hidden="true">{expanded ? '−' : '+'}</span>
+            </button>
+          )}
         </div>
       )}
 
       <div className="projects-recent" id="recent">
         <div className="section-header projects-recent-header">
-          <h3 className="projects-subhead">Recent on GitHub</h3>
+          <h3 className="projects-subhead">Fresh from GitHub</h3>
           <a
             href="https://github.com/chinmay-sawant?tab=repositories"
             target="_blank"

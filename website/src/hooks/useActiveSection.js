@@ -1,58 +1,43 @@
 import { useEffect, useState } from 'react';
 import { PAGE_SECTIONS } from '../utils/sections';
 
-const DEFAULT_IDS = PAGE_SECTIONS.map((s) => s.id);
+const DEFAULT_IDS = PAGE_SECTIONS.map(section => section.id);
 
-/**
- * Tracks which page section is most visible. Shared by Header and SectionNav
- * so active states stay in sync.
- */
 export function useActiveSection(sectionIds = DEFAULT_IDS) {
-  const [activeId, setActiveId] = useState(sectionIds[0] ?? 'top');
-  // Stable key for dependency (array identity can change across renders)
+  const [activeId, setActiveId] = useState(sectionIds[0] ?? 'about');
   const idsKey = sectionIds.join(',');
 
   useEffect(() => {
     const ids = idsKey.split(',').filter(Boolean);
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
-    if (elements.length === 0) return undefined;
+    const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+    if (!sections.length) return undefined;
+    let frame = null;
 
-    const ratios = new Map();
+    const update = () => {
+      frame = null;
+      const readingLine = Math.max(140, window.innerHeight * 0.3);
+      let current = sections[0].id;
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top > readingLine) break;
+        current = section.id;
+      }
+      setActiveId(current);
+    };
+    const schedule = () => {
+      if (frame === null) frame = window.requestAnimationFrame(update);
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          ratios.set(entry.target.id, entry.intersectionRatio);
-        });
-
-        if (window.scrollY < 80) {
-          setActiveId(ids[0]);
-          return;
-        }
-
-        let bestId = ids[0];
-        let bestRatio = -1;
-        ids.forEach((id) => {
-          const ratio = ratios.get(id) ?? 0;
-          if (ratio > bestRatio) {
-            bestRatio = ratio;
-            bestId = id;
-          }
-        });
-
-        setActiveId(bestId);
-      },
-      {
-        root: null,
-        rootMargin: '-20% 0px -45% 0px',
-        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
-      },
-    );
-
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    update();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    const resize = new ResizeObserver(schedule);
+    sections.forEach(section => resize.observe(section));
+    return () => {
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      resize.disconnect();
+      if (frame !== null) window.cancelAnimationFrame(frame);
+    };
   }, [idsKey]);
 
   return activeId;

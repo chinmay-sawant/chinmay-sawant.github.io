@@ -1,45 +1,40 @@
+import Hero from '../Hero/Hero';
 import './About.css';
 
-const About = () => {
-  return (
-    <section className="section about-section reveal" id="about">
-      <div className="section-header">
-        <h2 className="section-title">About</h2>
-      </div>
+const About = () => (
+  <section className="section about-section" id="about" aria-labelledby="hero-name">
+    <img className="about-art" src="/images/about-botanical.webp" alt="" width="1536" height="1024" decoding="async" />
+    <Hero />
+    <details className="about-more">
+      <summary>A little more about me <span aria-hidden="true">+</span></summary>
       <div className="section-body">
         <p>
-          I am a software engineer who owns features end to end: from collaborating
-          with customers on refining requirements through to implementing the
-          features. At CitiusTech I work on the patient portal, which is based on
-          Golang microservices on AWS (Lambda, gRPC, GraphQL), shipping features
-          across the full stack of services rather than isolated tickets. Earlier
-          at NSEIT I spent years modernizing exam platforms and building reporting
-          and automation in Java and Python.
+          I own features from the first conversation with a customer to the code
+          that ships. At CitiusTech, I work on patient care journeys with Go
+          microservices on AWS, using Lambda, gRPC, and GraphQL. Earlier, at NSEIT,
+          I modernized exam platforms and built reporting and automation with
+          Java and Python.
         </p>
         <p>
-          Beyond day-to-day product work, I am always exploring and learning,
-          especially with AI-assisted workflows (Copilot, Cursor, Codex, and
-          friends). That habit has turned into real artifacts: VS Code and
-          Chrome extensions, static analyzers for the AI coding era, call-graph
-          visualizers for legacy codebases, and a full-fledged PDF engine built
-          from scratch in Go (GoPDFSuit, 585+ GitHub stars) when third-party APIs
-          were not the right tradeoff.
+          Outside product work, I make tools for problems I keep running into:
+          PDF engines, HTML rendering, static analysis, call-graph visualizers,
+          and browser and editor extensions. My current focus is gopdfsuit,
+          gowkhtmltopdf, and SpectrePS. I also explore AI-assisted workflows with
+          Copilot, Cursor, and Codex.
         </p>
         <p>
-          I write about what I find: architecture notes, performance wins, and
-          lessons from open source, so the next person (or future me) can move
-          faster. Side projects often start as an itch at work or a curiosity
-          about a new language or stack; some stay experiments, others become
-          tools I maintain and share.
-        </p>
-        <p>
-          If it involves systems thinking, developer experience, or turning a
-          half-baked idea into something people can actually use, I am usually
-          interested.
+          I write down architecture decisions, performance findings, and open
+          source lessons so I can return to them and other people can build on
+          them. Some projects stay experiments. Others become tools I maintain
+          and share.
         </p>
       </div>
-    </section>
-  );
-};
-
+    </details>
+    <div className="about-context">
+      <div><span className="context-label">Currently</span><p>Senior Golang Developer <span>at CitiusTech</span></p></div>
+      <div><span className="context-label">Building</span><p>PDF tools &amp; backend systems</p></div>
+      <div><span className="context-label">Beyond the keyboard</span><p>Books, bicycles &amp; a bit of chess</p></div>
+    </div>
+  </section>
+);
 export default About;
