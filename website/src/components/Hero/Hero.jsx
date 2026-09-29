@@ -4,7 +4,7 @@ const Hero = ({ onNavigate }) => (
   <div className="hero" id="top">
     <p className="hero-eyebrow"><span aria-hidden="true" /> Software engineer · Mumbai, India</p>
     <h1 className="hero-name" id="hero-name">Chinmay<br />Sawant<span>.</span></h1>
-    <p className="hero-note">Systems thinking.</p>
+    <p className="hero-note">Systems thinker.</p>
     <p className="hero-lede">
       I build backend systems and developer tools in <strong>Go</strong>,
       with roots in Java and Python. My work spans healthcare, edtech,
